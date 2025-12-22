@@ -62,7 +62,7 @@ const Skills = () => {
                     viewport={{ once: true }}
                     className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-gray-800 to-gray-400 dark:from-white dark:to-gray-600 tracking-tighter mb-4"
                 >
-                    BUILDING BLOCKS
+                    TECHNICAL SKILLS
                 </motion.h2>
 
             </div>
@@ -73,7 +73,7 @@ const Skills = () => {
                 ))}
             </div>
 
-        </section>
+        </section >
     );
 };
 
