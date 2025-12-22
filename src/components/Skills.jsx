@@ -64,9 +64,7 @@ const Skills = () => {
                 >
                     BUILDING BLOCKS
                 </motion.h2>
-                <p className="text-gray-500 dark:text-gray-400 font-mono text-sm tracking-widest uppercase">
-                    // ARCHITECTURAL CORE
-                </p>
+
             </div>
 
             <div className="max-w-6xl mx-auto px-4 flex flex-wrap justify-center gap-8 md:gap-12 pb-20">
