@@ -174,7 +174,7 @@ const Hero = () => {
                             <span className="mr-2 opacity-50">&gt;</span>
                             <span className="text-blue-600 dark:text-blue-400 font-mono">
                                 <Typewriter
-                                    words={[profile.role, "Problem Solver", "Creative Dev"]}
+                                    words={[profile.role, "Graphic Designer", "Problem Solver", "Creative Dev"]}
                                     loop={true}
                                     cursor
                                     cursorStyle='_'
