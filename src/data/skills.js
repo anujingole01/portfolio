@@ -31,7 +31,7 @@ export const skills = [
             { name: "Postman", icon: SiPostman, color: "#FF6C37" },
             { name: "Figma", icon: FaFigma, color: "#F24E1E" },
             { name: "Docker", icon: FaDocker, color: "#2496ED" },
-            { name: "Arduino", icon: SiArduino, color: "#00979D" }, // Added for IoT project context
+            { name: "Arduino", icon: SiArduino, color: "#00979D" }, 
         ]
     }
 ];
