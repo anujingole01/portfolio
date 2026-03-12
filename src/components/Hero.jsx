@@ -1,245 +1,139 @@
 import { motion } from 'framer-motion';
-import { Typewriter } from 'react-simple-typewriter';
-import { Link } from 'react-scroll';
+import { FaInstagram, FaLinkedinIn, FaDribbble, FaBehance } from 'react-icons/fa';
 import { profile } from '../data/profile';
-import CodeTablet from './CodeTablet';
-import { useEffect, useRef } from 'react';
 
 const Hero = () => {
-    const canvasRef = useRef(null);
-
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        const ctx = canvas.getContext('2d');
-        let animationFrameId;
-
-        const resizeCanvas = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
-
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        const particles = [];
-        const numParticles = 80;
-        const connectionDistance = 150;
-
-        // Create particles
-        for (let i = 0; i < numParticles; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5,
-                size: Math.random() * 2 + 1,
-            });
-        }
-
-        let mouse = { x: null, y: null };
-
-        const handleMouseMove = (e) => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        };
-        const handleMouseLeave = () => {
-            mouse.x = null;
-            mouse.y = null;
-        };
-
-        // Listen to window for smoother full-screen tracking
-        window.addEventListener('mousemove', handleMouseMove);
-        window.addEventListener('mouseleave', handleMouseLeave);
-
-        const animate = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear but transparent
-
-            // Check theme for colors (simple check for now, can be improved)
-            const isDark = document.documentElement.classList.contains('dark');
-            const particleColor = isDark ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.4)';
-            const lineColor = isDark ? 'rgba(59, 130, 246, 0.2)' : 'rgba(37, 99, 235, 0.15)'; // Blue tint
-
-            ctx.fillStyle = particleColor;
-            ctx.strokeStyle = lineColor;
-
-            particles.forEach(p => {
-                p.x += p.vx;
-                p.y += p.vy;
-
-                // Bounce off edges
-                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-                // Interaction with mouse
-                if (mouse.x != null) {
-                    const dx = mouse.x - p.x;
-                    const dy = mouse.y - p.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    const forceRadius = 200;
-
-                    if (distance < forceRadius) {
-                        // Gentle attraction to mouse
-                        const force = (forceRadius - distance) / forceRadius;
-                        p.vx += dx * force * 0.0002;
-                        p.vy += dy * force * 0.0002;
-                    }
-                }
-
-                // Speed limit
-                const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
-                const maxSpeed = 1.5;
-                if (speed > maxSpeed) {
-                    p.vx = (p.vx / speed) * maxSpeed;
-                    p.vy = (p.vy / speed) * maxSpeed;
-                }
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fill();
-            });
-
-            // Draw connections
-            ctx.lineWidth = 1;
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < connectionDistance) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = isDark
-                            ? `rgba(96, 165, 250, ${1 - distance / connectionDistance})` // Blue-400
-                            : `rgba(37, 99, 235, ${1 - distance / connectionDistance})`; // Blue-600
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                    }
-                }
-
-                // Connect to mouse
-                if (mouse.x != null) {
-                    const dx = particles[i].x - mouse.x;
-                    const dy = particles[i].y - mouse.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < connectionDistance * 1.5) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = isDark
-                            ? `rgba(255, 255, 255, ${1 - distance / (connectionDistance * 1.5)})`
-                            : `rgba(0, 0, 0, ${1 - distance / (connectionDistance * 1.5)})`;
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(mouse.x, mouse.y);
-                        ctx.stroke();
-                    }
-                }
+    // Animation variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.2
             }
+        }
+    };
 
-            animationFrameId = requestAnimationFrame(animate);
-        };
-
-        animate();
-
-        return () => {
-            window.removeEventListener('resize', resizeCanvas);
-            window.removeEventListener('mousemove', handleMouseMove);
-            window.removeEventListener('mouseleave', handleMouseLeave);
-            cancelAnimationFrame(animationFrameId);
-        };
-    }, []);
+    const itemVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    };
 
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 pt-16 relative overflow-hidden transition-colors duration-300">
-            {/* Canvas Background */}
-            <canvas
-                ref={canvasRef}
-                className="absolute inset-0 w-full h-full pointer-events-none z-0"
-            />
+        <section id="home" className="w-full h-full min-h-[80vh] flex items-center pt-10 md:pt-0 overflow-hidden relative">
+            <div className="max-w-[1300px] w-full mx-auto px-8 md:px-16 flex flex-col-reverse md:flex-row items-center justify-between">
+                
+                {/* Left Content */}
+                <motion.div 
+                    className="w-full md:w-[55%] flex flex-col justify-center items-start mt-12 md:mt-0 relative z-10"
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                >
+                    <motion.p variants={itemVariants} className="text-gray-400 text-lg md:text-xl font-medium tracking-wide mb-2">
+                        Hi I am
+                    </motion.p>
+                    <motion.h2 variants={itemVariants} className="text-white text-2xl md:text-3xl font-semibold mb-2">
+                        {profile.name}
+                    </motion.h2>
+                    <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-bold text-[#FF7A00] mb-8 leading-tight tracking-tight">
+                        UI/UX designer
+                    </motion.h1>
 
-            {/* Gradient Overlay for Fade */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-gray-50 dark:to-gray-900 z-0 pointer-events-none h-full w-full"></div>
+                    {/* Socials */}
+                    <motion.div variants={itemVariants} className="flex space-x-4 mb-10">
+                        {[
+                            { icon: <FaInstagram size={18} />, url: profile.social?.instagram || '#' },
+                            { icon: <FaLinkedinIn size={18} />, url: profile.social?.linkedin || '#' },
+                            { icon: <FaDribbble size={18} />, url: '#' },
+                            { icon: <FaBehance size={18} />, url: '#' }
+                        ].map((social, index) => (
+                            <motion.a 
+                                key={index} 
+                                href={social.url}
+                                target="_blank"
+                                rel="noreferrer"
+                                whileHover={{ scale: 1.1, backgroundColor: "#FF7A00", borderColor: "#FF7A00" }}
+                                whileTap={{ scale: 0.95 }}
+                                className="w-12 h-12 rounded-full border border-gray-600 flex items-center justify-center text-gray-300 hover:text-white transition-colors duration-300"
+                            >
+                                {social.icon}
+                            </motion.a>
+                        ))}
+                    </motion.div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center relative z-10 w-full">
+                    {/* Buttons */}
+                    <motion.div variants={itemVariants} className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
+                        <motion.button 
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-[#FF7A00] text-white px-8 py-3 rounded-md font-medium text-lg shadow-[0_0_20px_rgba(255,122,0,0.3)] hover:shadow-[0_0_30px_rgba(255,122,0,0.5)] transition"
+                        >
+                            Hire Me
+                        </motion.button>
+                        <motion.button 
+                            whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.05)" }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-transparent text-gray-300 border border-gray-500 px-8 py-3 rounded-md font-medium text-lg hover:text-white hover:border-gray-400 transition"
+                        >
+                            Download CV
+                        </motion.button>
+                    </motion.div>
 
-                <div className="w-full md:w-1/2 text-center md:text-left mt-12 md:mt-0 pointer-events-auto">
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    {/* Stats Card */}
+                    <motion.div 
+                        variants={itemVariants}
+                        className="bg-[#1C1C1C] border border-[#2A2A2A] rounded-2xl w-full max-w-lg p-6 lg:p-8 flex items-center justify-between"
                     >
-
-                        <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
-                            I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">{profile.name}</span>
-                        </h1>
-                        <h3 className="text-2xl md:text-4xl font-semibold text-gray-700 dark:text-gray-300 mb-8 h-12 flex justify-center md:justify-start items-center">
-                            <span className="mr-2 opacity-50">&gt;</span>
-                            <span className="text-blue-600 dark:text-blue-400 font-mono">
-                                <Typewriter
-                                    words={[profile.role, "Graphic Designer", "Problem Solver", "Creative Dev"]}
-                                    loop={true}
-                                    cursor
-                                    cursorStyle='_'
-                                    typeSpeed={80}
-                                    deleteSpeed={50}
-                                    delaySpeed={1500}
-                                />
-                            </span>
-                        </h3>
-                        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-lg mx-auto md:mx-0 leading-relaxed">
-                            {profile.bio}
-                        </p>
-
-                        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 justify-center md:justify-start">
-                            <Link
-                                to="projects"
-                                smooth={true}
-                                duration={500}
-                                className="cursor-pointer px-8 py-4 rounded-full bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-1"
-                            >
-                                Explore Work
-                            </Link>
-                            <Link
-                                to="contact"
-                                smooth={true}
-                                duration={500}
-                                className="cursor-pointer px-8 py-4 rounded-full border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-bold text-lg hover:border-blue-500 hover:text-blue-500 transition-all bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm"
-                            >
-                                Contact Me
-                            </Link>
+                        <div className="flex flex-col text-center md:text-left">
+                            <h3 className="text-[#FF7A00] text-2xl md:text-3xl font-bold mb-1">5+</h3>
+                            <p className="text-gray-400 text-sm md:text-base">Experiences</p>
+                        </div>
+                        <div className="w-px h-12 bg-gray-700 mx-4"></div>
+                        <div className="flex flex-col text-center md:text-left">
+                            <h3 className="text-[#FF7A00] text-2xl md:text-3xl font-bold mb-1">20+</h3>
+                            <p className="text-gray-400 text-sm md:text-base">Project done</p>
+                        </div>
+                        <div className="w-px h-12 bg-gray-700 mx-4"></div>
+                        <div className="flex flex-col text-center md:text-left">
+                            <h3 className="text-[#FF7A00] text-2xl md:text-3xl font-bold mb-1">80+</h3>
+                            <p className="text-gray-400 text-sm md:text-base">Happy Clients</p>
                         </div>
                     </motion.div>
-                </div>
+                </motion.div>
 
-                <div className="w-full md:w-1/2 flex justify-center items-center perspective-1000">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8, rotateY: 30 }}
-                        animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                        transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-                        className="relative"
-                        whileHover={{ scale: 1.02, rotateY: 5, transition: { duration: 0.3 } }}
-                    >
-                        <div className="relative z-10 filter drop-shadow-2xl">
-                            <CodeTablet />
-                        </div>
-
-                        {/* Glow behind tablet */}
-                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-500/10 rounded-full filter blur-[80px] -z-10 animate-pulse"></div>
-                    </motion.div>
-                </div>
-
+                {/* Right Image Container */}
+                <motion.div 
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+                    className="w-full md:w-[45%] flex justify-center items-center relative mb-12 md:mb-0"
+                >
+                    <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[450px] md:h-[450px] lg:w-[500px] lg:h-[500px]">
+                        {/* Dark circular background */}
+                        <div className="absolute inset-0 bg-[#1D1D1D] rounded-full top-[10%] left-[5%] right-[5%] w-[80%] h-[80%] m-auto scale-[1.15]"></div>
+                        
+                        {/* Cutout portrait image - Using an Unsplash dummy specifically chosen for "no bg" feel or using transparent PNG proxy */}
+                        <motion.img 
+                            initial={{ scale: 0.95 }}
+                            animate={{ scale: 1 }}
+                            transition={{ 
+                                duration: 2, 
+                                repeat: Infinity, 
+                                repeatType: "reverse", 
+                                ease: "easeInOut" 
+                            }}
+                            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" 
+                            alt="Profile Cutout" 
+                            className="absolute bottom-0 w-full h-[110%] object-cover object-top filter brightness-[0.8] contrast-[1.1] rounded-b-full drop-shadow-2xl"
+                            style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}
+                        />
+                        {/* In reality, the user will swap this with a transparent PNG */}
+                    </div>
+                </motion.div>
+                
             </div>
-
-            {/* Scroll Indicator */}
-            <motion.div
-                className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer text-gray-400 dark:text-gray-500 z-20"
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-            >
-                <Link to="about" smooth={true} duration={500}>
-                    <svg className="w-6 h-6 opacity-70 hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
-                </Link>
-            </motion.div>
         </section>
     );
 };

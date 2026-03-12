@@ -8,17 +8,15 @@ const IsometricCube = ({ skill, index }) => {
             whileHover={{ y: -20, scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
-            {/* The Cube Container - CSS 3D emulation */}
+            {/* The Cube Container */}
             <div className="absolute w-full h-full preserve-3d">
 
                 {/* Shadow */}
-                <div className="absolute -bottom-8 left-0 w-full h-full bg-black/20 blur-xl rounded-full transform scale-x-125 group-hover:scale-x-90 group-hover:blur-md transition-all duration-300"></div>
-
-                {/* Base/Bottom Face (Implied) */}
+                <div className="absolute -bottom-8 left-0 w-full h-full bg-black/40 blur-xl rounded-full transform scale-x-125 group-hover:scale-x-90 group-hover:blur-md transition-all duration-300"></div>
 
                 {/* Main Face (Top/Front) */}
                 <div
-                    className="absolute inset-0 bg-white dark:bg-gray-800 rounded-xl border-t border-l border-white/50 dark:border-gray-600 shadow-2xl z-20 flex flex-col items-center justify-center transition-colors duration-300"
+                    className="absolute inset-0 bg-[#161616] rounded-xl border-t border-l border-[#2A2A2A] shadow-2xl z-20 flex flex-col items-center justify-center transition-all duration-300 group-hover:border-[#FF7A00]"
                     style={{
                         background: `linear-gradient(135deg, ${skill.color}15, transparent)`,
                     }}
@@ -26,17 +24,17 @@ const IsometricCube = ({ skill, index }) => {
                     <div className="text-4xl filter drop-shadow-md transform transition-transform group-hover:scale-110" style={{ color: skill.color }}>
                         <skill.icon />
                     </div>
-                    <span className="mt-2 text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+                    <span className="mt-2 text-xs font-bold text-gray-300 uppercase tracking-wider group-hover:text-white transition-colors">
                         {skill.name}
                     </span>
                 </div>
 
                 {/* Side Face (Thickness) simulating 3D */}
                 <div
-                    className="absolute top-2 left-2 w-full h-full bg-gray-200 dark:bg-gray-900 rounded-xl -z-10 transform translate-x-2 translate-y-2 border-r border-b border-gray-300 dark:border-black"
+                    className="absolute top-2 left-2 w-full h-full bg-[#1A1A1A] rounded-xl -z-10 transform translate-x-2 translate-y-2 border-r border-b border-[#0C0C0C]"
                 ></div>
                 <div
-                    className="absolute top-4 left-4 w-full h-full bg-gray-300 dark:bg-gray-950 rounded-xl -z-20 transform translate-x-2 translate-y-2"
+                    className="absolute top-4 left-4 w-full h-full bg-[#111111] rounded-xl -z-20 transform translate-x-2 translate-y-2"
                 ></div>
             </div>
         </motion.div>
@@ -45,29 +43,31 @@ const IsometricCube = ({ skill, index }) => {
 
 const Skills = () => {
     return (
-        <section id="skills" className="py-32 bg-gray-100 dark:bg-[#0c0c0c] min-h-screen overflow-hidden flex flex-col items-center justify-center relative">
+        <section id="skills" className="py-24 relative overflow-hidden flex flex-col items-center justify-center">
 
-            {/* Isometric Grid Background */}
-            <div className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.05]"
+            {/* Subtle Grid Background */}
+            <div className="absolute inset-0 pointer-events-none opacity-[0.05]"
                 style={{
-                    backgroundImage: 'linear-gradient(0deg, transparent 24%, #888 25%, #888 26%, transparent 27%, transparent 74%, #888 75%, #888 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, #888 25%, #888 26%, transparent 27%, transparent 74%, #888 75%, #888 76%, transparent 77%, transparent)',
-                    backgroundSize: '60px 60px'
+                    backgroundImage: 'radial-gradient(#444 1px, transparent 1px)',
+                    backgroundSize: '30px 30px'
                 }}
             ></div>
 
-            <div className="text-center mb-20 relative z-10">
+            <div className="text-center mb-20 relative z-10 w-full px-8 md:px-16">
+                <div className="mb-2">
+                    <span className="text-[#FF7A00] text-sm font-semibold tracking-widest uppercase">My Arsenal</span>
+                </div>
                 <motion.h2
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-gray-800 to-gray-400 dark:from-white dark:to-gray-600 tracking-tighter mb-4"
+                    className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4"
                 >
-                    TECHNICAL SKILLS
+                    Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-[#FF7A00]">Skills</span>
                 </motion.h2>
-
             </div>
 
-            <div className="max-w-6xl mx-auto px-4 flex flex-wrap justify-center gap-8 md:gap-12 pb-20">
+            <div className="max-w-[1300px] mx-auto px-8 md:px-16 flex flex-wrap justify-center gap-6 md:gap-12 w-full">
                 {skills.flatMap(cat => cat.items).map((skill, index) => (
                     <IsometricCube key={skill.name} skill={skill} index={index} />
                 ))}

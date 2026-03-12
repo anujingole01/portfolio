@@ -4,111 +4,122 @@ import { profile } from '../data/profile';
 
 const Contact = () => {
     return (
-        <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="contact" className="py-24 relative overflow-hidden bg-[#0C0C0C]">
+            <div className="max-w-[1300px] mx-auto px-8 md:px-16 w-full">
+                
                 <div className="text-center mb-16">
+                    <span className="text-[#FF7A00] text-sm font-semibold tracking-widest uppercase block mb-2">Connect</span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
+                        className="text-4xl md:text-5xl font-bold text-white tracking-tight"
                     >
-                        Get In Touch
+                        Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-[#FF7A00]">Touch</span>
                     </motion.h2>
-                    <div className="w-20 h-1 bg-blue-600 mx-auto mt-4 rounded-full"></div>
                 </div>
 
-                <div className="flex flex-col md:flex-row gap-12">
-                    {/* Contact Info */}
+                <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 relative z-10">
+                    
+                    {/* Left Info Column */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="w-full md:w-1/3"
+                        transition={{ duration: 0.5 }}
+                        className="w-full lg:w-4/12 flex flex-col justify-center"
                     >
-                        <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Contact Info</h3>
-                        <div className="space-y-6">
-                            <div className="flex items-start space-x-4">
-                                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400">
+                        <h3 className="text-2xl font-semibold text-white mb-8">Let's discuss your project</h3>
+                        
+                        <div className="space-y-8">
+                            <div className="flex items-start space-x-6 group">
+                                <div className="w-14 h-14 bg-[#1C1C1C] border border-[#2A2A2A] rounded-xl flex items-center justify-center text-[#FF7A00] group-hover:bg-[#FF7A00] group-hover:text-white transition-all shadow-lg shrink-0">
                                     <FaEnvelope size={20} />
                                 </div>
-                                <div>
-                                    <h4 className="font-medium text-gray-900 dark:text-white">Email</h4>
-                                    <p className="text-gray-600 dark:text-gray-400">{profile.email}</p>
+                                <div className="flex flex-col justify-center translate-y-1">
+                                    <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Email</h4>
+                                    <p className="text-gray-300 font-medium group-hover:text-[#FF7A00] transition-colors">{profile.email}</p>
                                 </div>
                             </div>
 
-                            <div className="flex items-start space-x-4">
-                                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400">
+                            <div className="flex items-start space-x-6 group">
+                                <div className="w-14 h-14 bg-[#1C1C1C] border border-[#2A2A2A] rounded-xl flex items-center justify-center text-[#FF7A00] group-hover:bg-[#FF7A00] group-hover:text-white transition-all shadow-lg shrink-0">
                                     <FaPhone size={20} />
                                 </div>
-                                <div>
-                                    <h4 className="font-medium text-gray-900 dark:text-white">Phone</h4>
-                                    <p className="text-gray-600 dark:text-gray-400">{profile.mobile}</p>
+                                <div className="flex flex-col justify-center translate-y-1">
+                                    <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Phone</h4>
+                                    <p className="text-gray-300 font-medium group-hover:text-[#FF7A00] transition-colors">{profile.mobile}</p>
                                 </div>
                             </div>
 
-                            <div className="flex items-start space-x-4">
-                                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400">
+                            <div className="flex items-start space-x-6 group">
+                                <div className="w-14 h-14 bg-[#1C1C1C] border border-[#2A2A2A] rounded-xl flex items-center justify-center text-[#FF7A00] group-hover:bg-[#FF7A00] group-hover:text-white transition-all shadow-lg shrink-0">
                                     <FaMapMarkerAlt size={20} />
                                 </div>
-                                <div>
-                                    <h4 className="font-medium text-gray-900 dark:text-white">Location</h4>
-                                    <p className="text-gray-600 dark:text-gray-400">{profile.location}</p>
+                                <div className="flex flex-col justify-center translate-y-1">
+                                    <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Location</h4>
+                                    <p className="text-gray-300 font-medium group-hover:text-[#FF7A00] transition-colors">{profile.location}</p>
                                 </div>
                             </div>
                         </div>
                     </motion.div>
 
-                    {/* Contact Form */}
+                    {/* Right Form Column */}
                     <motion.div
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="w-full md:w-2/3 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg"
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                        className="w-full lg:w-8/12 bg-[#141414] border border-[#2A2A2A] p-8 md:p-12 rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden"
                     >
-                        <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                        {/* Subtle Form Background Glow */}
+                        <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#FF7A00]/5 blur-[100px] rounded-full"></div>
+
+                        <form className="space-y-6 relative z-10" onSubmit={(e) => e.preventDefault()}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Name</label>
+                                <div className="flex flex-col">
+                                    <label htmlFor="name" className="text-sm font-semibold text-gray-400 mb-2 uppercase tracking-wide">Name</label>
                                     <input
                                         type="text"
                                         id="name"
-                                        className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all dark:text-white"
-                                        placeholder="Your Name"
+                                        className="w-full px-5 py-4 rounded-xl bg-[#1A1A1A] border border-[#333] text-white focus:border-[#FF7A00] focus:ring-1 focus:ring-[#FF7A00] outline-none transition-all placeholder-gray-600"
+                                        placeholder="John Doe"
                                     />
                                 </div>
-                                <div>
-                                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
+                                <div className="flex flex-col">
+                                    <label htmlFor="email" className="text-sm font-semibold text-gray-400 mb-2 uppercase tracking-wide">Email</label>
                                     <input
                                         type="email"
                                         id="email"
-                                        className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all dark:text-white"
-                                        placeholder="your@email.com"
+                                        className="w-full px-5 py-4 rounded-xl bg-[#1A1A1A] border border-[#333] text-white focus:border-[#FF7A00] focus:ring-1 focus:ring-[#FF7A00] outline-none transition-all placeholder-gray-600"
+                                        placeholder="john@example.com"
                                     />
                                 </div>
                             </div>
-                            <div>
-                                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Subject</label>
+                            
+                            <div className="flex flex-col">
+                                <label htmlFor="subject" className="text-sm font-semibold text-gray-400 mb-2 uppercase tracking-wide">Subject</label>
                                 <input
                                     type="text"
                                     id="subject"
-                                    className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all dark:text-white"
-                                    placeholder="Project Inquiry"
+                                    className="w-full px-5 py-4 rounded-xl bg-[#1A1A1A] border border-[#333] text-white focus:border-[#FF7A00] focus:ring-1 focus:ring-[#FF7A00] outline-none transition-all placeholder-gray-600"
+                                    placeholder="How can I help you?"
                                 />
                             </div>
-                            <div>
-                                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
+                            
+                            <div className="flex flex-col">
+                                <label htmlFor="message" className="text-sm font-semibold text-gray-400 mb-2 uppercase tracking-wide">Message</label>
                                 <textarea
                                     id="message"
-                                    rows="4"
-                                    className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all dark:text-white"
-                                    placeholder="Your message..."
+                                    rows="5"
+                                    className="w-full px-5 py-4 rounded-xl bg-[#1A1A1A] border border-[#333] text-white focus:border-[#FF7A00] focus:ring-1 focus:ring-[#FF7A00] outline-none transition-all placeholder-gray-600 resize-none"
+                                    placeholder="Write your message here..."
                                 ></textarea>
                             </div>
+                            
                             <button
                                 type="submit"
-                                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300 transform hover:-translate-y-1 shadow-lg"
+                                className="w-full md:w-auto mt-2 bg-transparent border-2 border-[#FF7A00] text-[#FF7A00] hover:bg-[#FF7A00] hover:text-white font-bold py-4 px-12 rounded-xl transition-all duration-300 shadow-[0_0_15px_rgba(255,122,0,0.1)] hover:shadow-[0_0_25px_rgba(255,122,0,0.3)] uppercase tracking-widest text-sm"
                             >
                                 Send Message
                             </button>
