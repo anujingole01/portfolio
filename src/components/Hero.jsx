@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaInstagram, FaLinkedinIn, FaDribbble, FaBehance } from 'react-icons/fa';
 import { profile } from '../data/profile';
+import profilePic from '../assets/anuj-photo.jpg.jpg';
 
 const Hero = () => {
     // Animation variants
@@ -114,7 +115,7 @@ const Hero = () => {
                         {/* Dark circular background */}
                         <div className="absolute inset-0 bg-[#1D1D1D] rounded-full top-[10%] left-[5%] right-[5%] w-[80%] h-[80%] m-auto scale-[1.15]"></div>
                         
-                        {/* Cutout portrait image - Using an Unsplash dummy specifically chosen for "no bg" feel or using transparent PNG proxy */}
+                        {/* Cutout portrait image */}
                         <motion.img 
                             initial={{ scale: 0.95 }}
                             animate={{ scale: 1 }}
@@ -124,12 +125,10 @@ const Hero = () => {
                                 repeatType: "reverse", 
                                 ease: "easeInOut" 
                             }}
-                            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" 
+                            src={profilePic}
                             alt="Profile Cutout" 
-                            className="absolute bottom-0 w-full h-[110%] object-cover object-top filter brightness-[0.8] contrast-[1.1] rounded-b-full drop-shadow-2xl"
-                            style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}
+                            className="absolute bottom-[-10%] w-[120%] h-[120%] left-[-10%] object-contain filter drop-shadow-2xl"
                         />
-                        {/* In reality, the user will swap this with a transparent PNG */}
                     </div>
                 </motion.div>
                 
