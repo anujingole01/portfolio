@@ -35,7 +35,7 @@ const Navbar = () => {
                 {/* LOGO replaced with Portfolio */}
                 <div className="flex-shrink-0 cursor-pointer">
                     <RouterLink to="/" onClick={() => window.scrollTo(0, 0)}>
-                        <h1 className="text-3xl font-black tracking-[0.2em] font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-[#FF7A00] transition-transform hover:scale-105">
+                        <h1 className="text-2xl font-bold tracking-wide text-white transition-transform hover:scale-105">
                             Portfolio
                         </h1>
                     </RouterLink>

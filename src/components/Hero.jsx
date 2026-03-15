@@ -38,7 +38,7 @@ const Hero = () => {
                     </motion.p>
                     <motion.h2 
                         variants={itemVariants} 
-                        className="text-white text-5xl md:text-6xl font-black tracking-tight mb-2 hover:text-[#FF7A00] hover:scale-105 transition-all duration-300 origin-left cursor-default"
+                        className="text-white text-5xl md:text-6xl font-black tracking-tight mb-2 hover:text-[#FF1E1E] hover:scale-105 transition-all duration-300 origin-left cursor-default"
                     >
                         {profile.name}
                     </motion.h2>
@@ -129,7 +129,7 @@ const Hero = () => {
                                 repeatType: "reverse", 
                                 ease: "easeInOut" 
                             }}
-                            className="relative w-full h-full m-auto rounded-[3rem] overflow-hidden border-2 border-[#2A2A2A] shadow-[0_0_60px_rgba(255,122,0,0.1)] hover:shadow-[0_0_80px_rgba(255,122,0,0.25)] ring-4 ring-transparent hover:ring-[#FF7A00]/20 flex justify-center items-center transition-all duration-500"
+                            className="relative w-full h-full m-auto rounded-full overflow-hidden border-2 border-[#2A2A2A] shadow-[0_0_60px_rgba(255,122,0,0.1)] hover:shadow-[0_0_80px_rgba(255,122,0,0.25)] ring-4 ring-transparent hover:ring-[#FF7A00]/20 flex justify-center items-center transition-all duration-500"
                         >
                             <img 
                                 src={profilePic}
@@ -137,7 +137,7 @@ const Hero = () => {
                                 className="w-full h-full object-cover object-top filter contrast-110 saturate-[1.1] hover:scale-110 transition-transform duration-700"
                             />
                             {/* Inner vignette shadow for depth */}
-                            <div className="absolute inset-0 rounded-[3rem] shadow-[inset_0_0_80px_rgba(0,0,0,0.8)] pointer-events-none"></div>
+                            <div className="absolute inset-0 rounded-full shadow-[inset_0_0_80px_rgba(0,0,0,0.8)] pointer-events-none"></div>
                         </motion.div>
                         
                         {/* Floating elements behind */}

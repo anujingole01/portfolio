@@ -1,5 +1,5 @@
 import Navbar from './Navbar';
-
+import Footer from './Footer';
 const Layout = ({ children }) => {
     return (
         <div className="min-h-screen bg-[#0C0C0C] text-gray-100 flex items-center justify-center p-1 lg:p-3 overflow-hidden">
@@ -9,6 +9,7 @@ const Layout = ({ children }) => {
                 <main className="flex-grow pb-12">
                     {children}
                 </main>
+                <Footer />
             </div>
         </div>
     );
