@@ -4,13 +4,19 @@ import { Typewriter } from 'react-simple-typewriter';
 import { profile } from '../data/profile';
 import profilePic from '../assets/anuj-photo.jpg.jpg';
 import resumePdf from '../assets/resume.pdf';
-import Particles from "react-tsparticles";
-import { loadSlim } from "tsparticles-slim";
-import { useCallback } from 'react';
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
-    const particlesInit = useCallback(async engine => {
-        await loadSlim(engine);
+    const [init, setInit] = useState(false);
+
+    useEffect(() => {
+        initParticlesEngine(async (engine) => {
+            await loadSlim(engine);
+        }).then(() => {
+            setInit(true);
+        });
     }, []);
 
     // Animation variants
@@ -37,9 +43,8 @@ const Hero = () => {
                 <span className="text-[25vw] font-black tracking-tighter text-white uppercase relative">
                     WEB
                     <div className="absolute inset-0 z-0 pointer-events-auto opacity-0 group-hover:opacity-100 transition-opacity duration-1000 overflow-hidden rounded-3xl">
-                        <Particles
+                        {init && <Particles
                             id="tsparticles"
-                            init={particlesInit}
                             options={{
                                 fullScreen: { enable: false },
                                 fpsLimit: 120,
@@ -89,6 +94,7 @@ const Hero = () => {
                             }}
                             className="absolute inset-0 h-full w-full pointer-events-none"
                         />
+                        }
                     </div>
                 </span>
             </div>
