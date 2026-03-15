@@ -16,7 +16,7 @@ const IsometricCube = ({ skill, index }) => {
 
                 {/* Main Face (Top/Front) */}
                 <div
-                    className="absolute inset-0 bg-[#161616] rounded-xl border-t border-l border-[#2A2A2A] shadow-2xl z-20 flex flex-col items-center justify-center transition-all duration-300 group-hover:border-[#FF7A00]"
+                    className="absolute inset-0 bg-[#161616] rounded-xl border-t border-l border-[#2A2A2A] shadow-2xl z-20 flex flex-col items-center justify-center transition-all duration-300 group-hover:border-[#0ea5e9]"
                     style={{
                         background: `linear-gradient(135deg, ${skill.color}15, transparent)`,
                     }}
@@ -55,7 +55,7 @@ const Skills = () => {
 
             <div className="text-center mb-20 relative z-10 w-full px-8 md:px-16">
                 <div className="mb-2">
-                    <span className="text-[#FF7A00] text-sm font-semibold tracking-widest uppercase">My Arsenal</span>
+                    <span className="text-[#0ea5e9] text-sm font-semibold tracking-widest uppercase">My Arsenal</span>
                 </div>
                 <motion.h2
                     initial={{ opacity: 0, y: 30 }}
@@ -63,7 +63,7 @@ const Skills = () => {
                     viewport={{ once: true }}
                     className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4"
                 >
-                    Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-[#FF7A00]">Skills</span>
+                    Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-[#0ea5e9]">Skills</span>
                 </motion.h2>
             </div>
 

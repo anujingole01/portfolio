@@ -22,11 +22,11 @@ const About = () => {
                                 className="rounded-xl w-full h-auto object-cover grayscale-[30%] contrast-125 group-hover:grayscale-0 transition-all duration-500"
                             />
                             {/* Decorative Corner Elements */}
-                            <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-[#FF7A00] rounded-tl-lg"></div>
-                            <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-[#FF7A00] rounded-br-lg"></div>
+                            <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-[#0ea5e9] rounded-tl-lg"></div>
+                            <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-[#0ea5e9] rounded-br-lg"></div>
                         </div>
                         {/* Blob Background effect */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#FF7A00]/10 blur-[80px] -z-10 rounded-full"></div>
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#0ea5e9]/10 blur-[80px] -z-10 rounded-full"></div>
                     </motion.div>
 
                     {/* Right Content Section */}
@@ -38,9 +38,9 @@ const About = () => {
                         className="w-full md:w-7/12"
                     >
                         <div className="mb-4">
-                            <h3 className="text-[#FF7A00] text-lg font-medium tracking-widest uppercase mb-1">About Me</h3>
+                            <h3 className="text-[#0ea5e9] text-lg font-medium tracking-widest uppercase mb-1">About Me</h3>
                             <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-                                I'm {profile.name}, a <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-[#FF7A00]">{profile.role}</span>
+                                I'm {profile.name}, a <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-[#0ea5e9]">{profile.role}</span>
                             </h2>
                         </div>
                         
@@ -53,12 +53,12 @@ const About = () => {
                         </p>
 
                         <div className="grid grid-cols-2 gap-6">
-                            <div className="p-6 bg-[#161616] border border-[#2A2A2A] rounded-2xl flex flex-col justify-center transition-all duration-300 hover:border-[#FF7A00]/50 hover:bg-[#1C1C1C] hover:-translate-y-1">
-                                <h4 className="font-bold text-[#FF7A00] text-3xl mb-1">20+</h4>
+                            <div className="p-6 bg-[#161616] border border-[#2A2A2A] rounded-2xl flex flex-col justify-center transition-all duration-300 hover:border-[#0ea5e9]/50 hover:bg-[#1C1C1C] hover:-translate-y-1">
+                                <h4 className="font-bold text-[#0ea5e9] text-3xl mb-1">20+</h4>
                                 <p className="text-sm text-gray-400 font-medium">Projects Built</p>
                             </div>
-                            <div className="p-6 bg-[#161616] border border-[#2A2A2A] rounded-2xl flex flex-col justify-center transition-all duration-300 hover:border-[#FF7A00]/50 hover:bg-[#1C1C1C] hover:-translate-y-1">
-                                <h4 className="font-bold text-[#FF7A00] text-3xl mb-1">3+</h4>
+                            <div className="p-6 bg-[#161616] border border-[#2A2A2A] rounded-2xl flex flex-col justify-center transition-all duration-300 hover:border-[#0ea5e9]/50 hover:bg-[#1C1C1C] hover:-translate-y-1">
+                                <h4 className="font-bold text-[#0ea5e9] text-3xl mb-1">3+</h4>
                                 <p className="text-sm text-gray-400 font-medium">Hackathons & Events</p>
                             </div>
                         </div>

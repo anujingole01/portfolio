@@ -8,14 +8,14 @@ const Projects = () => {
             <div className="max-w-[1300px] mx-auto px-8 md:px-16 w-full">
                 
                 <div className="mb-16">
-                    <span className="text-[#FF7A00] text-sm font-semibold tracking-widest uppercase block mb-2">My Portfolio</span>
+                    <span className="text-[#0ea5e9] text-sm font-semibold tracking-widest uppercase block mb-2">My Portfolio</span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         className="text-4xl md:text-5xl font-bold text-white tracking-tight"
                     >
-                        Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-[#FF7A00]">Work</span>
+                        Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-[#0ea5e9]">Work</span>
                     </motion.h2>
                     <p className="mt-4 text-gray-400 text-lg max-w-2xl leading-relaxed">
                         A selection of projects that showcase my passion for building robust and scalable applications.
@@ -30,7 +30,7 @@ const Projects = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.5 }}
-                            className="group relative h-[420px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 bg-[#161616] border border-[#2A2A2A] hover:border-[#FF7A00]/50"
+                            className="group relative h-[420px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 bg-[#161616] border border-[#2A2A2A] hover:border-[#0ea5e9]/50"
                         >
                             {/* Full Background Image */}
                             <img
@@ -46,7 +46,7 @@ const Projects = () => {
                                 <div className="absolute -top-10 left-0 w-full h-10 bg-gradient-to-t from-[#1A1A1A] to-transparent"></div>
 
                                 <div>
-                                    <h3 className="text-xl font-bold text-white mb-2 leading-tight group-hover:text-[#FF7A00] transition-colors">{project.title}</h3>
+                                    <h3 className="text-xl font-bold text-white mb-2 leading-tight group-hover:text-[#0ea5e9] transition-colors">{project.title}</h3>
                                     <p className="text-gray-400 text-sm line-clamp-2">
                                         {project.description}
                                     </p>
@@ -65,7 +65,7 @@ const Projects = () => {
                                         href={project.links.github}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center space-x-2 text-sm text-gray-400 hover:text-[#FF7A00] transition-colors"
+                                        className="flex items-center space-x-2 text-sm text-gray-400 hover:text-[#0ea5e9] transition-colors"
                                     >
                                         <FaGithub size={16} />
                                         <span>Code</span>
@@ -74,7 +74,7 @@ const Projects = () => {
                                         href={project.links.demo}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center space-x-2 text-sm text-gray-400 hover:text-[#FF7A00] transition-colors"
+                                        className="flex items-center space-x-2 text-sm text-gray-400 hover:text-[#0ea5e9] transition-colors"
                                     >
                                         <FaExternalLinkAlt size={14} />
                                         <span>Live Demo</span>

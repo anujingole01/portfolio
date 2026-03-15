@@ -50,7 +50,7 @@ const Navbar = () => {
                                 to={item.to}
                                 smooth={true}
                                 duration={500}
-                                className={`cursor-pointer text-sm font-semibold tracking-wide transition-all duration-300 hover:text-[#FF7A00] hover:-translate-y-1 ${index === 0 ? 'text-[#FF7A00]' : 'text-gray-400'}`}
+                                className={`cursor-pointer text-sm font-semibold tracking-wide transition-all duration-300 hover:text-[#0ea5e9] hover:-translate-y-1 ${index === 0 ? 'text-[#0ea5e9]' : 'text-gray-400'}`}
                             >
                                 {item.name}
                             </ScrollLink>
@@ -58,7 +58,7 @@ const Navbar = () => {
                             <button
                                 key={item.name}
                                 onClick={() => handleNavClick(item.to)}
-                                className={`cursor-pointer text-sm font-semibold tracking-wide transition-all duration-300 hover:text-[#FF7A00] hover:-translate-y-1 ${index === 0 ? 'text-[#FF7A00]' : 'text-gray-400'}`}
+                                className={`cursor-pointer text-sm font-semibold tracking-wide transition-all duration-300 hover:text-[#0ea5e9] hover:-translate-y-1 ${index === 0 ? 'text-[#0ea5e9]' : 'text-gray-400'}`}
                             >
                                 {item.name}
                             </button>
@@ -68,7 +68,7 @@ const Navbar = () => {
 
                 {/* Mobile Menu Icon (simplified) */}
                 <div className="lg:hidden flex items-center">
-                    <button className="text-gray-400 hover:text-[#FF7A00] transition">
+                    <button className="text-gray-400 hover:text-[#0ea5e9] transition">
                         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
