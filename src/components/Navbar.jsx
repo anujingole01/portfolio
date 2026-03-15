@@ -11,10 +11,11 @@ const Navbar = () => {
     const navItems = [
         { name: 'Home', to: 'home' },
         { name: 'About me', to: 'about' },
-        { name: 'Education', to: 'education' },
         { name: 'Technical Skills', to: 'skills' },
         { name: 'Projects', to: 'projects' },
         { name: 'Graphic Design', to: 'graphics' },
+        { name: 'Certifications', to: 'certifications' },
+        { name: 'Education', to: 'education' },
         { name: 'Contact me', to: 'contact' },
     ];
 
