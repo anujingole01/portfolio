@@ -12,7 +12,7 @@ const IsometricCube = ({ skill, index }) => {
             <div className="absolute w-full h-full preserve-3d">
 
                 {/* Shadow */}
-                <div className="absolute -bottom-8 left-0 w-full h-full bg-black/40 blur-xl rounded-full transform scale-x-125 group-hover:scale-x-90 group-hover:blur-md transition-all duration-300"></div>
+                {/* Removed bottom blur element */}
 
                 {/* Main Face (Top/Front) */}
                 <div
@@ -63,7 +63,7 @@ const Skills = () => {
                     viewport={{ once: true }}
                     className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4"
                 >
-                    Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-[#0ea5e9]">Skills</span>
+                    Technical <span className="text-[#0ea5e9]">Skills</span>
                 </motion.h2>
             </div>
 

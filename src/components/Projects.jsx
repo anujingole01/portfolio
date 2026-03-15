@@ -15,7 +15,7 @@ const Projects = () => {
                         viewport={{ once: true }}
                         className="text-4xl md:text-5xl font-bold text-white tracking-tight"
                     >
-                        Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-[#0ea5e9]">Work</span>
+                        Featured <span className="text-[#0ea5e9]">Work</span>
                     </motion.h2>
                     <p className="mt-4 text-gray-400 text-lg max-w-2xl leading-relaxed">
                         A selection of projects that showcase my passion for building robust and scalable applications.
@@ -43,7 +43,7 @@ const Projects = () => {
                             <div className="absolute bottom-0 left-0 w-full h-[55%] bg-[#1A1A1A] border-t border-[#2A2A2A] p-6 flex flex-col justify-between z-10">
                                 
                                 {/* Gradient fade linking image to text */}
-                                <div className="absolute -top-10 left-0 w-full h-10 bg-gradient-to-t from-[#1A1A1A] to-transparent"></div>
+                                {/* Gradient removed */}
 
                                 <div>
                                     <h3 className="text-xl font-bold text-white mb-2 leading-tight group-hover:text-[#0ea5e9] transition-colors">{project.title}</h3>

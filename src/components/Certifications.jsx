@@ -63,7 +63,7 @@ const HolographicCard = ({ cert, index }) => {
                         alt={cert.title}
                         className="w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-60 transition-all duration-500 transform scale-105 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0C] via-[#0C0C0C]/80 to-transparent"></div>
+                    {/* Gradient removed */}
                 </div>
 
                 {/* Content Layer */}
@@ -128,7 +128,7 @@ const HolographicCard = ({ cert, index }) => {
 
 const Certifications = () => {
     return (
-        <section id="certifications" className="py-24 relative overflow-hidden bg-gradient-to-b from-transparent to-[#0A0A0A]">
+        <section id="certifications" className="py-24 relative overflow-hidden bg-[#0C0C0C]">
             
             <div className="max-w-[1300px] mx-auto px-8 md:px-16 w-full relative z-10">
                 <div className="text-center mb-16">
@@ -139,7 +139,7 @@ const Certifications = () => {
                         viewport={{ once: true }}
                         className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4"
                     >
-                        Certified <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-[#0ea5e9]">Professional</span>
+                        Certified <span className="text-[#0ea5e9]">Professional</span>
                     </motion.h2>
                 </div>
 

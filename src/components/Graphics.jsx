@@ -27,8 +27,7 @@ const Graphics = () => {
         <section id="graphics" className="py-24 relative overflow-hidden bg-[#0A0A0A]">
             
             {/* Background design accents */}
-            <div className="absolute top-20 right-0 w-96 h-96 bg-[#0ea5e9]/5 blur-[120px] rounded-full pointer-events-none"></div>
-            <div className="absolute bottom-10 left-10 w-80 h-80 bg-purple-600/5 blur-[100px] rounded-full pointer-events-none"></div>
+            {/* Background design accents removed */}
 
             <div className="max-w-[1300px] mx-auto px-8 md:px-16 w-full relative z-10">
                 
@@ -43,7 +42,7 @@ const Graphics = () => {
                             viewport={{ once: true }}
                             className="text-4xl md:text-5xl font-bold text-white tracking-tight"
                         >
-                            Graphic <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-[#0ea5e9]">Design</span>
+                            Graphic <span className="text-[#0ea5e9]">Design</span>
                         </motion.h2>
                     </div>
                     <motion.p 
@@ -76,7 +75,7 @@ const Graphics = () => {
                             {/* Content appearing on hover/bottom */}
                             <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end h-full z-10">
                                 
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                {/* Gradient overlay removed */}
 
                                 <div className="relative z-20 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
                                     <div className="w-12 h-12 bg-[#0ea5e9]/20 border border-[#0ea5e9]/50 rounded-full flex items-center justify-center text-[#0ea5e9] mb-4 backdrop-blur-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">

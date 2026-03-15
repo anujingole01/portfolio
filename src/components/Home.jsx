@@ -4,6 +4,7 @@ import Skills from './Skills';
 import Projects from './Projects';
 import Graphics from './Graphics';
 import Certifications from './Certifications';
+import Education from './Education';
 import Contact from './Contact';
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
             <Projects />
             <Graphics />
             <Certifications />
+            <Education />
             <Contact />
         </div>
     );

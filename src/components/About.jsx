@@ -26,7 +26,7 @@ const About = () => {
                             <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-[#0ea5e9] rounded-br-lg"></div>
                         </div>
                         {/* Blob Background effect */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#0ea5e9]/10 blur-[80px] -z-10 rounded-full"></div>
+                         {/* Removed Background Effect */}
                     </motion.div>
 
                     {/* Right Content Section */}
@@ -40,7 +40,7 @@ const About = () => {
                         <div className="mb-4">
                             <h3 className="text-[#0ea5e9] text-lg font-medium tracking-widest uppercase mb-1">About Me</h3>
                             <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-                                I'm {profile.name}, a <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-[#0ea5e9]">{profile.role}</span>
+                                I'm {profile.name}, a <span className="text-[#0ea5e9]">{profile.role}</span>
                             </h2>
                         </div>
                         

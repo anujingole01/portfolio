@@ -15,7 +15,7 @@ const Contact = () => {
                         viewport={{ once: true }}
                         className="text-4xl md:text-5xl font-bold text-white tracking-tight"
                     >
-                        Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-[#0ea5e9]">Touch</span>
+                        Get In <span className="text-[#0ea5e9]">Touch</span>
                     </motion.h2>
                 </div>
 
@@ -44,16 +44,6 @@ const Contact = () => {
 
                             <div className="flex items-start space-x-6 group">
                                 <div className="w-14 h-14 bg-[#1C1C1C] border border-[#2A2A2A] rounded-xl flex items-center justify-center text-[#0ea5e9] group-hover:bg-[#0ea5e9] group-hover:text-white transition-all shadow-lg shrink-0">
-                                    <FaPhone size={20} />
-                                </div>
-                                <div className="flex flex-col justify-center translate-y-1">
-                                    <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Phone</h4>
-                                    <p className="text-gray-300 font-medium group-hover:text-[#0ea5e9] transition-colors">{profile.mobile}</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start space-x-6 group">
-                                <div className="w-14 h-14 bg-[#1C1C1C] border border-[#2A2A2A] rounded-xl flex items-center justify-center text-[#0ea5e9] group-hover:bg-[#0ea5e9] group-hover:text-white transition-all shadow-lg shrink-0">
                                     <FaMapMarkerAlt size={20} />
                                 </div>
                                 <div className="flex flex-col justify-center translate-y-1">
@@ -73,7 +63,7 @@ const Contact = () => {
                         className="w-full lg:w-8/12 bg-[#141414] border border-[#2A2A2A] p-8 md:p-12 rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden"
                     >
                         {/* Subtle Form Background Glow */}
-                        <div className="absolute -top-32 -right-32 w-64 h-64 bg-[#0ea5e9]/5 blur-[100px] rounded-full"></div>
+                        {/* Blur placeholder removed */}
 
                         <form className="space-y-6 relative z-10" onSubmit={(e) => e.preventDefault()}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -3,6 +3,7 @@ import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa';
 import { Typewriter } from 'react-simple-typewriter';
 import { profile } from '../data/profile';
 import profilePic from '../assets/anuj-photo.jpg.jpg';
+import resumePdf from '../assets/resume.pdf';
 
 const Hero = () => {
     // Animation variants
@@ -80,7 +81,8 @@ const Hero = () => {
                     {/* Buttons */}
                     <motion.div variants={itemVariants} className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mb-16">
                         <motion.a 
-                            href="/resume" // Use actual resume link here
+                            href={resumePdf} 
+                            download="Anuj_Ingole_CV.pdf"
                             whileHover={{ scale: 1.05, y: -2 }}
                             whileTap={{ scale: 0.95 }}
                             className="bg-transparent text-white border-2 border-[#0ea5e9] px-8 py-3 rounded-xl font-bold text-lg hover:bg-[#0ea5e9] transition-all duration-300 shadow-[0_0_20px_rgba(255,122,0,0.1)] hover:shadow-[0_0_30px_rgba(255,122,0,0.4)] text-center cursor-pointer uppercase tracking-wider"
@@ -140,9 +142,7 @@ const Hero = () => {
                             <div className="absolute inset-0 rounded-full shadow-[inset_0_0_80px_rgba(0,0,0,0.8)] pointer-events-none"></div>
                         </motion.div>
                         
-                        {/* Floating elements behind */}
-                        <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#0ea5e9]/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
-                        <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl -z-10 animate-pulse delay-700"></div>
+                        {/* Floating blur elements removed */}
                     </div>
                 </motion.div>
                 

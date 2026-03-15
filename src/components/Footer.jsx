@@ -4,10 +4,10 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="w-full relative overflow-hidden py-10 mt-12 bg-gradient-to-b from-transparent to-[#0A0A0A]">
+        <footer className="w-full relative overflow-hidden py-10 mt-12 bg-[#0A0A0A]">
             
             {/* Subtle top border gradient */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-px bg-gradient-to-r from-transparent via-[#0ea5e9]/50 to-transparent"></div>
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-px bg-[#0ea5e9]/20"></div>
 
             <div className="max-w-[1300px] mx-auto px-8 md:px-16 flex flex-col items-center justify-center relative z-10">
                 <div className="flex items-center justify-center space-x-2 mb-4">
@@ -21,7 +21,7 @@ const Footer = () => {
                 </p>
 
                 {/* Ambient Glow */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[100px] bg-[#0ea5e9]/5 blur-[80px] rounded-full -z-10"></div>
+                {/* Ambient glow removed */}
             </div>
         </footer>
     );

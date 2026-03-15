@@ -57,7 +57,7 @@ init();`;
             }}
         >
             {/* Glossy Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-50 pointer-events-none z-20"></div>
+            {/* Glass reflection gradient removed */}
 
             {/* Top Bar / Camera */}
             <div className="absolute top-0 left-0 w-full h-8 bg-gray-800 flex justify-center items-center z-20 border-b border-gray-700">
@@ -97,7 +97,7 @@ init();`;
             </div>
 
             {/* Bottom Glow */}
-            <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-blue-900/10 to-transparent pointer-events-none"></div>
+            {/* Base gradient removed */}
         </motion.div>
     );
 };
