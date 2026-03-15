@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { profile } from '../data/profile';
-import setupImg from '../assets/setup.png';
 
 const About = () => {
     return (
@@ -16,11 +15,11 @@ const About = () => {
                         transition={{ duration: 0.6, ease: "easeOut" }}
                         className="w-full md:w-5/12 relative"
                     >
-                        <div className="relative z-10 p-2 bg-[#1C1C1C] border border-[#2A2A2A] rounded-2xl shadow-2xl">
+                        <div className="relative z-10 p-2 bg-[#1C1C1C] border border-[#2A2A2A] rounded-2xl shadow-2xl group cursor-pointer">
                             <img
-                                src={setupImg}
+                                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800"
                                 alt="Coding setup"
-                                className="rounded-xl w-full h-auto object-cover grayscale-[20%] contrast-125"
+                                className="rounded-xl w-full h-auto object-cover grayscale-[30%] contrast-125 group-hover:grayscale-0 transition-all duration-500"
                             />
                             {/* Decorative Corner Elements */}
                             <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-[#FF7A00] rounded-tl-lg"></div>
@@ -54,13 +53,13 @@ const About = () => {
                         </p>
 
                         <div className="grid grid-cols-2 gap-6">
-                            <div className="p-6 bg-[#161616] border border-[#2A2A2A] rounded-2xl flex flex-col justify-center transition-all duration-300 hover:border-[#FF7A00]/50 hover:bg-[#1C1C1C]">
-                                <h4 className="font-bold text-[#FF7A00] text-3xl mb-1">5+</h4>
-                                <p className="text-sm text-gray-400 font-medium">Projects Completed</p>
+                            <div className="p-6 bg-[#161616] border border-[#2A2A2A] rounded-2xl flex flex-col justify-center transition-all duration-300 hover:border-[#FF7A00]/50 hover:bg-[#1C1C1C] hover:-translate-y-1">
+                                <h4 className="font-bold text-[#FF7A00] text-3xl mb-1">20+</h4>
+                                <p className="text-sm text-gray-400 font-medium">Projects Built</p>
                             </div>
-                            <div className="p-6 bg-[#161616] border border-[#2A2A2A] rounded-2xl flex flex-col justify-center transition-all duration-300 hover:border-[#FF7A00]/50 hover:bg-[#1C1C1C]">
-                                <h4 className="font-bold text-[#FF7A00] text-3xl mb-1">1+</h4>
-                                <p className="text-sm text-gray-400 font-medium">Years Experience</p>
+                            <div className="p-6 bg-[#161616] border border-[#2A2A2A] rounded-2xl flex flex-col justify-center transition-all duration-300 hover:border-[#FF7A00]/50 hover:bg-[#1C1C1C] hover:-translate-y-1">
+                                <h4 className="font-bold text-[#FF7A00] text-3xl mb-1">3+</h4>
+                                <p className="text-sm text-gray-400 font-medium">Hackathons & Events</p>
                             </div>
                         </div>
                     </motion.div>
