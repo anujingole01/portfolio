@@ -27,7 +27,7 @@ const Contact = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="w-full lg:w-4/12 flex flex-col justify-center"
+                        className="w-full lg:w-1/2 flex flex-col justify-center"
                     >
                         <h3 className="text-2xl font-semibold text-white mb-8">Let's discuss your project</h3>
                         
@@ -60,7 +60,7 @@ const Contact = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className="w-full lg:w-8/12 bg-[#141414] border border-[#2A2A2A] p-8 md:p-12 rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden"
+                        className="w-full lg:w-1/2 bg-[#141414] border border-[#2A2A2A] p-8 md:p-12 rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.5)] relative overflow-hidden"
                     >
                         {/* Subtle Form Background Glow */}
                         {/* Blur placeholder removed */}

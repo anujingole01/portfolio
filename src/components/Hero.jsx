@@ -4,8 +4,15 @@ import { Typewriter } from 'react-simple-typewriter';
 import { profile } from '../data/profile';
 import profilePic from '../assets/anuj-photo.jpg.jpg';
 import resumePdf from '../assets/resume.pdf';
+import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim";
+import { useCallback } from 'react';
 
 const Hero = () => {
+    const particlesInit = useCallback(async engine => {
+        await loadSlim(engine);
+    }, []);
+
     // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -25,6 +32,67 @@ const Hero = () => {
 
     return (
         <section id="home" className="w-full h-full min-h-[85vh] flex items-center pt-8 md:pt-0 overflow-hidden relative">
+            {/* Ambient background text watermark */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] select-none pointer-events-none z-0 w-full flex justify-center opacity-[0.02] group">
+                <span className="text-[25vw] font-black tracking-tighter text-white uppercase relative">
+                    WEB
+                    <div className="absolute inset-0 z-0 pointer-events-auto opacity-0 group-hover:opacity-100 transition-opacity duration-1000 overflow-hidden rounded-3xl">
+                        <Particles
+                            id="tsparticles"
+                            init={particlesInit}
+                            options={{
+                                fullScreen: { enable: false },
+                                fpsLimit: 120,
+                                interactivity: {
+                                    events: {
+                                        onHover: {
+                                            enable: true,
+                                            mode: "grab",
+                                        },
+                                    },
+                                    modes: {
+                                        grab: {
+                                            distance: 150,
+                                            links: {
+                                                opacity: 0.8,
+                                                color: "#0ea5e9"
+                                            }
+                                        },
+                                    },
+                                },
+                                particles: {
+                                    color: { value: "#0ea5e9" },
+                                    links: {
+                                        color: "#0ea5e9",
+                                        distance: 80,
+                                        enable: true,
+                                        opacity: 0.3,
+                                        width: 1,
+                                    },
+                                    move: {
+                                        direction: "none",
+                                        enable: true,
+                                        outModes: { default: "bounce" },
+                                        random: true,
+                                        speed: 1.5,
+                                        straight: false,
+                                    },
+                                    number: {
+                                        density: { enable: true, area: 400 },
+                                        value: 60,
+                                    },
+                                    opacity: { value: 0.5 },
+                                    shape: { type: "circle" },
+                                    size: { value: { min: 1, max: 3 } },
+                                },
+                                detectRetina: true,
+                            }}
+                            className="absolute inset-0 h-full w-full pointer-events-none"
+                        />
+                    </div>
+                </span>
+            </div>
+            
             <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 lg:px-20 flex flex-col-reverse md:flex-row items-center justify-between">
                 
                 {/* Left Content */}

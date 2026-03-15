@@ -7,21 +7,18 @@ const EducationData = [
         institution: "Lovely Professional University, Phagwara, Punjab",
         duration: "Aug '24 - Present",
         description: "Specializing in advanced Computer Science logic and software engineering fundamentals.",
-        score: "CGPA: 6.7"
     },
     {
         degree: "Diploma - Computer Science and Engineering",
         institution: "Lovely Professional University, Phagwara, Punjab",
         duration: "Jul '22 - Jul '24",
         description: "Focus on foundational software engineering, algorithms, and technical computing skills.",
-        score: "CGPA: 8.2"
     },
     {
         degree: "Intermediate",
         institution: "Abhyasa English School, Amravati, Maharashtra",
         duration: "Jun '20 - Mar '22",
         description: "Completed secondary education with an early focus on science and logic.",
-        score: "Percentage: 58%"
     }
 ];
 
@@ -44,6 +41,14 @@ const Education = () => {
                 </div>
 
                 <div className="relative border-l-2 border-[#2A2A2A] ml-4 md:ml-8 pl-8 md:pl-12 space-y-12">
+                    {/* Animated vertical connecting line matching scroll progress */}
+                    <motion.div 
+                        initial={{ height: 0 }}
+                        whileInView={{ height: '100%' }}
+                        transition={{ duration: 1.5, ease: "easeInOut" }}
+                        className="absolute top-0 left-[-2px] w-[2px] bg-[#0ea5e9] origin-top"
+                    />
+
                     {EducationData.map((item, index) => (
                         <motion.div
                             key={index}
@@ -58,9 +63,15 @@ const Education = () => {
                                 <FaUniversity className="text-[#0ea5e9] text-xl" />
                             </div>
 
-                            <span className="inline-block px-4 py-1 mb-4 text-xs font-bold text-[#0ea5e9] bg-[#0ea5e9]/10 rounded-full uppercase tracking-wider">
+                            <motion.span 
+                                initial={{ opacity: 0, scale: 0.8, x: -20 }}
+                                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                                whileHover={{ scale: 1.05, x: 10, backgroundColor: 'rgba(14, 165, 233, 0.2)' }}
+                                transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
+                                className="inline-flex px-4 py-1.5 mb-4 text-xs font-bold text-[#0ea5e9] bg-[#0ea5e9]/10 rounded-full uppercase tracking-wider cursor-default origin-left border border-transparent hover:border-[#0ea5e9]/30"
+                            >
                                 {item.duration}
-                            </span>
+                            </motion.span>
                             
                             <h3 className="text-2xl font-bold text-white mb-2">{item.degree}</h3>
                             <h4 className="text-lg text-gray-400 font-medium mb-4">{item.institution}</h4>
@@ -69,9 +80,7 @@ const Education = () => {
                                 {item.description}
                             </p>
 
-                            <div className="inline-block border border-[#333] px-4 py-2 rounded-lg bg-[#1C1C1C]">
-                                <span className="text-sm font-bold text-white">{item.score}</span>
-                            </div>
+                            {/* Score visual layout removed */}
                         </motion.div>
                     ))}
                 </div>
