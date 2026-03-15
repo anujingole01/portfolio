@@ -45,7 +45,7 @@ const Hero = () => {
                     <motion.h1 variants={itemVariants} className="text-3xl md:text-5xl font-bold text-[#FF7A00] mb-8 leading-tight tracking-tight h-16 md:h-20 flex items-center">
                         <span className="font-mono">
                             <Typewriter
-                                words={['Full Stack Web Developer', 'Graphic Designer', 'UI/UX Enthusiast', 'Problem Solver']}
+                                words={['Full Stack Web Developer', 'Graphic Designer']}
                                 loop={true}
                                 cursor
                                 cursorStyle='_'

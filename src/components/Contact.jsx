@@ -83,7 +83,7 @@ const Contact = () => {
                                         type="text"
                                         id="name"
                                         className="w-full px-5 py-4 rounded-xl bg-[#1A1A1A] border border-[#333] text-white focus:border-[#FF7A00] focus:ring-1 focus:ring-[#FF7A00] outline-none transition-all placeholder-gray-600"
-                                        placeholder="John Doe"
+                                        placeholder="Aarav Sharma"
                                     />
                                 </div>
                                 <div className="flex flex-col">
@@ -92,7 +92,7 @@ const Contact = () => {
                                         type="email"
                                         id="email"
                                         className="w-full px-5 py-4 rounded-xl bg-[#1A1A1A] border border-[#333] text-white focus:border-[#FF7A00] focus:ring-1 focus:ring-[#FF7A00] outline-none transition-all placeholder-gray-600"
-                                        placeholder="john@example.com"
+                                        placeholder="aarav@example.com"
                                     />
                                 </div>
                             </div>
