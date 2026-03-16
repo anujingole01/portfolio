@@ -176,7 +176,7 @@ const Hero = () => {
                         </div>
                         <div className="w-px h-16 bg-gray-700 mx-2 md:mx-6 shadow-[0_0_10px_rgba(255,122,0,0.2)]"></div>
                         <div className="flex flex-col text-center md:text-left">
-                            <h3 className="text-[#0ea5e9] text-3xl md:text-4xl font-black mb-1">20+</h3>
+                            <h3 className="text-[#0ea5e9] text-3xl md:text-4xl font-black mb-1">5+</h3>
                             <p className="text-gray-400 text-xs md:text-sm font-bold uppercase tracking-widest mt-1">Projects Built</p>
                         </div>
                         <div className="w-px h-16 bg-gray-700 mx-2 md:mx-6 shadow-[0_0_10px_rgba(255,122,0,0.2)]"></div>

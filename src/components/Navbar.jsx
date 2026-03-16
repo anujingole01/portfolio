@@ -34,11 +34,10 @@ const Navbar = () => {
     return (
         <nav className="w-full px-8 md:px-16 py-6 z-50">
             <div className="flex items-center justify-between">
-                {/* LOGO replaced with Portfolio */}
                 <div className="flex-shrink-0 cursor-pointer">
                     <RouterLink to="/" onClick={() => window.scrollTo(0, 0)}>
-                        <h1 className="text-2xl font-bold tracking-wide text-white transition-transform hover:scale-105">
-                            Portfolio
+                        <h1 className="text-xl md:text-2xl font-bold tracking-wide text-white transition-transform hover:scale-105">
+                            Anuj Ingole <span className="text-[#0ea5e9]">Portfolio</span>
                         </h1>
                     </RouterLink>
                 </div>
