@@ -4,38 +4,34 @@ import { skills } from '../data/skills';
 const IsometricCube = ({ skill, index }) => {
     return (
         <motion.div
-            className="relative group w-24 h-24 md:w-32 md:h-32 m-6 cursor-pointer"
-            whileHover={{ y: -20, scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="relative group w-28 h-28 md:w-32 md:h-32 m-4 md:m-6 cursor-pointer"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: index * 0.05 }}
+            whileHover={{ y: -12, scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
         >
-            {/* The Cube Container */}
-            <div className="absolute w-full h-full preserve-3d">
+            <div className="absolute w-full h-full">
+                {/* Techy Corner accents visible on hover */}
+                <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-[#0ea5e9] opacity-0 group-hover:opacity-100 transition-opacity z-30" />
+                <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-[#0ea5e9] opacity-0 group-hover:opacity-100 transition-opacity z-30" />
 
-                {/* Shadow */}
-                {/* Removed bottom blur element */}
-
-                {/* Main Face (Top/Front) */}
-                <div
-                    className="absolute inset-0 bg-[#161616] rounded-xl border-t border-l border-[#2A2A2A] shadow-2xl z-20 flex flex-col items-center justify-center transition-all duration-300 group-hover:border-[#0ea5e9]"
-                    style={{
-                        background: `linear-gradient(135deg, ${skill.color}15, transparent)`,
-                    }}
-                >
-                    <div className="text-4xl filter drop-shadow-md transform transition-transform group-hover:scale-110" style={{ color: skill.color }}>
+                {/* Card Face */}
+                <div className="absolute inset-0 bg-[#111] rounded-2xl border border-[#222] shadow-2xl z-20 flex flex-col items-center justify-center transition-all duration-500 group-hover:border-[#0ea5e9]/50 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0ea5e9]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="text-4xl filter drop-shadow-[0_0_8px_rgba(0,0,0,0.8)] transform transition-transform duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_12px_#0ea5e966]" style={{ color: skill.color }}>
                         <skill.icon />
                     </div>
-                    <span className="mt-2 text-xs font-bold text-gray-300 uppercase tracking-wider group-hover:text-white transition-colors">
+                    <span className="mt-3 text-[10px] font-black text-gray-500 uppercase tracking-widest group-hover:text-white transition-colors">
                         {skill.name}
                     </span>
+                    <div className="absolute top-1 right-2 text-[6px] font-mono text-gray-700 group-hover:text-[#0ea5e9]/40 uppercase tracking-widest">
+                        CODE_{skill.name.substring(0,2).toUpperCase()}
+                    </div>
                 </div>
 
-                {/* Side Face (Thickness) simulating 3D */}
-                <div
-                    className="absolute top-2 left-2 w-full h-full bg-[#1A1A1A] rounded-xl -z-10 transform translate-x-2 translate-y-2 border-r border-b border-[#0C0C0C]"
-                ></div>
-                <div
-                    className="absolute top-4 left-4 w-full h-full bg-[#111111] rounded-xl -z-20 transform translate-x-2 translate-y-2"
-                ></div>
+                {/* Simulated 3D Depth Layer */}
+                <div className="absolute top-1.5 left-1.5 w-full h-full bg-[#111] rounded-2xl -z-10 border border-[#222]" />
             </div>
         </motion.div>
     );

@@ -1,138 +1,125 @@
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { profile } from '../data/profile';
 
 const Contact = () => {
     return (
-        <section id="contact" className="py-24 relative overflow-hidden bg-[#050505]">
-            {/* Creative Background Orbs */}
-            <div className="absolute top-0 left-[10%] w-72 h-72 bg-[#0ea5e9] rounded-full mix-blend-screen filter blur-[100px] opacity-10 animate-pulse" />
-            <div className="absolute bottom-0 right-[10%] w-96 h-96 bg-[#0ea5e9] rounded-full mix-blend-screen filter blur-[120px] opacity-[0.05] animate-pulse" style={{ animationDelay: "2s" }} />
+        <section id="contact" className="py-32 relative overflow-hidden bg-transparent">
+            {/* Background Ambient Glows */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#0ea5e9]/10 rounded-full blur-[120px] pointer-events-none opacity-40" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-600/10 rounded-full blur-[100px] pointer-events-none opacity-30" />
 
-            <div className="max-w-[1300px] mx-auto px-8 md:px-16 w-full relative z-10">
-                <div className="text-center mb-20">
+            <div className="max-w-[1400px] mx-auto px-8 md:px-16 w-full relative z-10">
+                <div className="flex flex-col items-center text-center mb-24">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5 }}
-                        className="inline-flex items-center space-x-2 px-4 py-2 border border-[#2A2A2A] bg-[#161616] rounded-full text-[#0ea5e9] text-xs font-black tracking-widest uppercase mb-6 shadow-lg shadow-[#0ea5e9]/5"
+                        className="inline-flex items-center space-x-2 px-6 py-2 border border-[#222] bg-[#0A0A0A] rounded-full text-[#0ea5e9] text-xs font-black tracking-widest uppercase mb-6 shadow-2xl"
                     >
                         <FaEnvelope size={14}/>
-                        <span>Let's Connect</span>
+                        <span>Let's Build Something</span>
                     </motion.div>
                     <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-4xl md:text-6xl font-black text-white tracking-tighter"
+                        className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-none"
                     >
-                        Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0ea5e9] to-cyan-200">Touch</span>
+                        Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0ea5e9] to-cyan-400">Touch.</span>
                     </motion.h2>
                 </div>
 
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-8 justify-between relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-stretch">
                     
-                    {/* Left Info Column with Creative Vertical Cards */}
-                    <div className="w-full lg:w-[45%] flex flex-col justify-center space-y-6">
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="bg-gradient-to-br from-[#121212] to-[#0A0A0A] border border-[#2A2A2A] p-8 rounded-3xl hover:border-[#0ea5e9]/50 transition-all duration-500 group relative overflow-hidden"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#0ea5e9]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                            <div className="flex items-center space-x-6 relative z-10">
-                                <div className="w-16 h-16 bg-[#1A1A1A] border-2 border-[#333] group-hover:border-[#0ea5e9] rounded-2xl flex items-center justify-center text-[#0ea5e9] group-hover:text-white transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:shadow-[0_0_20px_rgba(14,165,233,0.3)] shrink-0">
-                                    <FaEnvelope size={24} />
-                                </div>
-                                <div>
-                                    <h4 className="text-sm font-black text-gray-500 uppercase tracking-widest mb-1">Email Drop</h4>
-                                    <p className="text-white font-medium text-lg drop-shadow-md">{profile.email}</p>
-                                </div>
-                            </div>
-                        </motion.div>
+                    {/* Left Column: Direct Contact Info */}
+                    <div className="flex flex-col space-y-8 h-full">
+                        <div className="p-10 rounded-[3rem] bg-[#111] border border-[#222] h-full flex flex-col justify-between">
+                            <div>
+                                <h3 className="text-3xl font-black text-white mb-8 tracking-tighter">Connection Hub</h3>
+                                <div className="space-y-10">
+                                    <div className="flex items-start space-x-6 group">
+                                        <div className="w-16 h-16 bg-[#1A1A1A] border border-[#333] group-hover:border-[#0ea5e9] rounded-[1.5rem] flex items-center justify-center text-[#0ea5e9] text-2xl transition-all duration-500 shadow-xl">
+                                            <FaEnvelope />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Send a Message</h4>
+                                            <p className="text-xl font-bold text-white group-hover:text-[#0ea5e9] transition-colors break-all">{profile.email}</p>
+                                        </div>
+                                    </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 }}
-                            className="bg-gradient-to-br from-[#121212] to-[#0A0A0A] border border-[#2A2A2A] p-8 rounded-3xl hover:border-[#0ea5e9]/50 transition-all duration-500 group relative overflow-hidden"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#0ea5e9]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                            <div className="flex items-center space-x-6 relative z-10">
-                                <div className="w-16 h-16 bg-[#1A1A1A] border-2 border-[#333] group-hover:border-[#0ea5e9] rounded-2xl flex items-center justify-center text-[#0ea5e9] group-hover:text-white transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:shadow-[0_0_20px_rgba(14,165,233,0.3)] shrink-0">
-                                    <FaMapMarkerAlt size={24} />
-                                </div>
-                                <div>
-                                    <h4 className="text-sm font-black text-gray-500 uppercase tracking-widest mb-1">Location</h4>
-                                    <p className="text-white font-medium text-lg drop-shadow-md">{profile.location}</p>
+                                    <div className="flex items-start space-x-6 group">
+                                        <div className="w-16 h-16 bg-[#1A1A1A] border border-[#333] group-hover:border-[#0ea5e9] rounded-[1.5rem] flex items-center justify-center text-[#0ea5e9] text-2xl transition-all duration-500 shadow-xl">
+                                            <FaMapMarkerAlt />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Current Base</h4>
+                                            <p className="text-xl font-bold text-white group-hover:text-[#0ea5e9] transition-colors">{profile.location}</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </motion.div>
+
+                            {/* Social Connectivity */}
+                            <div className="mt-16 pt-10 border-t border-[#222]">
+                                <h4 className="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-8 text-center md:text-left">Network Links</h4>
+                                <div className="flex flex-wrap gap-5 justify-center md:justify-start">
+                                    <motion.a 
+                                        href={profile.social.linkedin} 
+                                        target="_blank" 
+                                        rel="noreferrer"
+                                        whileHover={{ y: -5, scale: 1.05 }}
+                                        className="flex items-center space-x-4 px-8 py-5 rounded-[1.5rem] bg-[#0077b5]/10 border border-[#0077b5]/30 text-white hover:bg-[#0077b5] hover:border-transparent transition-all duration-300"
+                                    >
+                                        <FaLinkedin size={24} className="text-[#0077b5] group-hover:text-white" />
+                                        <span className="font-black text-sm uppercase tracking-widest">LinkedIn</span>
+                                    </motion.a>
+
+                                    <motion.a 
+                                        href={profile.social.github} 
+                                        target="_blank" 
+                                        rel="noreferrer"
+                                        whileHover={{ y: -5, scale: 1.05 }}
+                                        className="flex items-center space-x-4 px-8 py-5 rounded-[1.5rem] bg-white/5 border border-[#333] text-white hover:bg-white hover:text-black transition-all duration-300"
+                                    >
+                                        <FaGithub size={24} />
+                                        <span className="font-black text-sm uppercase tracking-widest">GitHub</span>
+                                    </motion.a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Right Form Column - High Modernity */}
-                    <div className="w-full lg:w-[50%] relative group perspective">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95, rotateY: 5 }}
-                            whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.7, type: "spring", stiffness: 100 }}
-                            className="bg-[#111] backdrop-blur-xl border border-[#222] p-8 md:p-10 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] group-hover:border-[#0ea5e9]/30 transition-all duration-500 relative overflow-hidden z-10"
-                        >
-                            <form className="space-y-6 relative z-10" onSubmit={(e) => e.preventDefault()}>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div className="flex flex-col relative group/input">
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            className="w-full px-5 py-4 pt-6 rounded-2xl bg-[#1A1A1A] border border-[#333] text-white focus:border-[#0ea5e9] outline-none transition-all peer"
-                                            placeholder=" "
-                                        />
-                                        <label htmlFor="name" className="absolute left-5 text-gray-500 text-sm top-1/2 -translate-y-1/2 peer-focus:top-3 peer-focus:text-xs peer-focus:text-[#0ea5e9] peer-focus:font-bold peer-[:not(:placeholder-shown)]:top-3 peer-[:not(:placeholder-shown)]:text-xs transition-all pointer-events-none uppercase tracking-wide">Name</label>
+                    {/* Right Column: Interaction Form */}
+                    <div className="bg-[#111] border border-[#222] p-12 md:p-16 rounded-[4rem] shadow-2xl relative overflow-hidden group">
+                        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#0ea5e9] to-cyan-400" />
+                        
+                        <form className="space-y-12" onSubmit={(e) => e.preventDefault()}>
+                            <div className="space-y-12">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                                    <div className="relative group/field">
+                                        <input type="text" id="user_name" className="w-full bg-transparent p-4 border-b-2 border-[#222] focus:border-[#0ea5e9] outline-none text-white text-xl font-bold transition-all peer placeholder:opacity-0" placeholder="Name" />
+                                        <label htmlFor="user_name" className="absolute left-4 top-4 text-gray-500 transition-all peer-focus:-top-6 peer-focus:text-sm peer-focus:text-[#0ea5e9] peer-focus:font-black peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-sm uppercase tracking-widest">Name</label>
                                     </div>
-                                    <div className="flex flex-col relative group/input">
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            className="w-full px-5 py-4 pt-6 rounded-2xl bg-[#1A1A1A] border border-[#333] text-white focus:border-[#0ea5e9] outline-none transition-all peer"
-                                            placeholder=" "
-                                        />
-                                        <label htmlFor="email" className="absolute left-5 text-gray-500 text-sm top-1/2 -translate-y-1/2 peer-focus:top-3 peer-focus:text-xs peer-focus:text-[#0ea5e9] peer-focus:font-bold peer-[:not(:placeholder-shown)]:top-3 peer-[:not(:placeholder-shown)]:text-xs transition-all pointer-events-none uppercase tracking-wide">Email</label>
+                                    <div className="relative group/field">
+                                        <input type="email" id="user_email" className="w-full bg-transparent p-4 border-b-2 border-[#222] focus:border-[#0ea5e9] outline-none text-white text-xl font-bold transition-all peer placeholder:opacity-0" placeholder="Email" />
+                                        <label htmlFor="user_email" className="absolute left-4 top-4 text-gray-500 transition-all peer-focus:-top-6 peer-focus:text-sm peer-focus:text-[#0ea5e9] peer-focus:font-black peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-sm uppercase tracking-widest">Email</label>
                                     </div>
                                 </div>
-                                
-                                <div className="flex flex-col relative group/input">
-                                    <input
-                                        type="text"
-                                        id="subject"
-                                        className="w-full px-5 py-4 pt-6 rounded-2xl bg-[#1A1A1A] border border-[#333] text-white focus:border-[#0ea5e9] outline-none transition-all peer"
-                                        placeholder=" "
-                                    />
-                                    <label htmlFor="subject" className="absolute left-5 text-gray-500 text-sm top-1/2 -translate-y-1/2 peer-focus:top-3 peer-focus:text-xs peer-focus:text-[#0ea5e9] peer-focus:font-bold peer-[:not(:placeholder-shown)]:top-3 peer-[:not(:placeholder-shown)]:text-xs transition-all pointer-events-none uppercase tracking-wide">Subject</label>
+
+                                <div className="relative group/field">
+                                    <textarea id="user_message" rows="4" className="w-full bg-transparent p-4 border-b-2 border-[#222] focus:border-[#0ea5e9] outline-none text-white text-xl font-bold transition-all peer placeholder:opacity-0 resize-none" placeholder="Message"></textarea>
+                                    <label htmlFor="user_message" className="absolute left-4 top-4 text-gray-500 transition-all peer-focus:-top-6 peer-focus:text-sm peer-focus:text-[#0ea5e9] peer-focus:font-black peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-sm uppercase tracking-widest">Transmission</label>
                                 </div>
-                                
-                                <div className="flex flex-col relative group/input">
-                                    <textarea
-                                        id="message"
-                                        rows="4"
-                                        className="w-full px-5 py-4 pt-8 rounded-2xl bg-[#1A1A1A] border border-[#333] text-white focus:border-[#0ea5e9] outline-none transition-all peer resize-none"
-                                        placeholder=" "
-                                    ></textarea>
-                                    <label htmlFor="message" className="absolute left-5 text-gray-500 text-sm top-6 -translate-y-1/2 peer-focus:top-4 peer-focus:text-xs peer-focus:text-[#0ea5e9] peer-focus:font-bold peer-[:not(:placeholder-shown)]:top-4 peer-[:not(:placeholder-shown)]:text-xs transition-all pointer-events-none uppercase tracking-wide">Message</label>
-                                </div>
-                                
-                                <button
-                                    type="submit"
-                                    className="w-full flex items-center justify-center space-x-3 mt-4 bg-gradient-to-r from-[transparent] to-[#1A1A1A] border-2 border-[#0ea5e9] text-white hover:bg-[#0ea5e9] font-black py-4 px-12 rounded-2xl transition-all duration-300 shadow-[0_0_15px_rgba(255,122,0,0.1)] hover:shadow-[0_0_30px_rgba(14,165,233,0.5)] uppercase tracking-widest text-sm relative group overflow-hidden"
-                                >
-                                    <span className="relative z-10 transition-transform group-hover:-translate-x-1">Send Identity</span>
-                                    <FaPaperPlane className="relative z-10 text-[#0ea5e9] group-hover:text-white transition-all transform group-hover:translate-x-2 group-hover:-translate-y-1" />
-                                    <div className="absolute inset-0 bg-[#0ea5e9] w-0 group-hover:w-full transition-all duration-500 ease-out z-0"></div>
-                                </button>
-                            </form>
-                        </motion.div>
+                            </div>
+
+                            <motion.button
+                                whileHover={{ scale: 1.02, y: -2 }}
+                                whileTap={{ scale: 0.98 }}
+                                className="w-full py-8 bg-[#0ea5e9] text-white rounded-[2rem] flex items-center justify-center space-x-6 shadow-[0_20px_40px_rgba(14,165,233,0.3)] hover:shadow-[0_25px_50px_rgba(14,165,233,0.45)] transition-all duration-300"
+                            >
+                                <span className="text-sm font-black uppercase tracking-[0.5em]">Send Message</span>
+                                <FaPaperPlane className="text-xl" />
+                            </motion.button>
+                        </form>
                     </div>
                 </div>
             </div>

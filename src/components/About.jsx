@@ -15,7 +15,7 @@ const About = () => {
                         transition={{ duration: 0.6, ease: "easeOut" }}
                         className="w-full md:w-5/12 relative"
                     >
-                        <div className="relative z-10 p-2 bg-[#1C1C1C] border border-[#2A2A2A] rounded-2xl shadow-2xl group cursor-pointer">
+                        <div className="relative z-10 p-2 bg-[#111] border border-[#222] rounded-2xl shadow-2xl group cursor-pointer">
                             <img
                                 src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800"
                                 alt="Coding setup"
