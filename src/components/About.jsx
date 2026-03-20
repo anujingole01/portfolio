@@ -1,68 +1,129 @@
 import { motion } from 'framer-motion';
-import { profile } from '../data/profile';
+import { FaServer, FaLaptopCode, FaProjectDiagram, FaRocket } from 'react-icons/fa';
+
+const Highlights = [
+    {
+        icon: <FaServer size={24} />,
+        title: "Backend Systems",
+        description: "Building secure REST APIs with Node.js, Express, JWT auth, and production-ready deployments."
+    },
+    {
+        icon: <FaLaptopCode size={24} />,
+        title: "Full-Stack Architecture",
+        description: "Designing end-to-end MERN apps with clean UI, scalable APIs, and reliable databases."
+    },
+    {
+        icon: <FaProjectDiagram size={24} />,
+        title: "API Integration",
+        description: "Connecting third-party services, webhooks, and external APIs into seamless data flows."
+    },
+    {
+        icon: <FaRocket size={24} />,
+        title: "Performance & DevOps",
+        description: "Optimizing queries, containerizing with Docker, and deploying on Linux servers."
+    }
+];
+
+const Stats = [
+    { value: "10+", label: "Projects Completed" },
+    { value: "12+", label: "Tech Stack" },
+    { value: "2+", label: "Years Coding" },
+    { value: "∞", label: "Curiosity" }
+];
 
 const About = () => {
     return (
-        <section id="about" className="py-24 relative overflow-hidden">
-            <div className="max-w-[1300px] mx-auto px-8 md:px-16">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-16">
+        <section id="about" className="py-32 relative overflow-hidden bg-transparent">
+            <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 w-full relative z-10">
+                <div className="flex flex-col xl:flex-row gap-16 xl:gap-24 items-start">
                     
-                    {/* Left Image Section */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                    {/* Intro Column */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="w-full md:w-5/12 relative"
+                        transition={{ duration: 0.6 }}
+                        className="w-full xl:w-5/12"
                     >
-                        <div className="relative z-10 p-2 bg-[#111] border border-[#222] rounded-2xl shadow-2xl group cursor-pointer">
-                            <img
-                                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800"
-                                alt="Coding setup"
-                                className="rounded-xl w-full h-auto object-cover grayscale-[30%] contrast-125 group-hover:grayscale-0 transition-all duration-500"
-                            />
-                            {/* Decorative Corner Elements */}
-                            <div className="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-[#0ea5e9] rounded-tl-lg"></div>
-                            <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-[#0ea5e9] rounded-br-lg"></div>
-                        </div>
-                        {/* Blob Background effect */}
-                         {/* Removed Background Effect */}
-                    </motion.div>
-
-                    {/* Right Content Section */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                        className="w-full md:w-7/12"
-                    >
-                        <div className="mb-4">
-                            <h3 className="text-[#0ea5e9] text-lg font-medium tracking-widest uppercase mb-1">About Me</h3>
-                            <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-                                I'm {profile.name}, a <span className="text-[#0ea5e9]">{profile.role}</span>
-                            </h2>
+                        <div className="flex items-center space-x-4 mb-6">
+                            <h3 className="text-[#0ea5e9] text-xs font-black tracking-[0.3em] uppercase">
+                                Overview
+                            </h3>
+                            <div className="h-[1px] w-16 bg-[#0ea5e9]/50"></div>
                         </div>
                         
-                        <p className="text-gray-400 text-lg mb-6 leading-relaxed">
-                            {profile.bio}
-                        </p>
-                        <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                            I am currently studying <strong className="text-gray-200">{profile.degree}</strong> at <strong className="text-gray-200">{profile.university}</strong>.
-                            My journey in web development started with a curiosity for how things work on the internet, and it has evolved into a passion for building robust and scalable applications.
-                        </p>
-
-                        <div className="grid grid-cols-2 gap-6">
-                            <div className="p-6 bg-[#161616] border border-[#2A2A2A] rounded-2xl flex flex-col justify-center transition-all duration-300 hover:border-[#0ea5e9]/50 hover:bg-[#1C1C1C] hover:-translate-y-1">
-                                <h4 className="font-bold text-[#0ea5e9] text-3xl mb-1">20+</h4>
-                                <p className="text-sm text-gray-400 font-medium">Projects Built</p>
-                            </div>
-                            <div className="p-6 bg-[#161616] border border-[#2A2A2A] rounded-2xl flex flex-col justify-center transition-all duration-300 hover:border-[#0ea5e9]/50 hover:bg-[#1C1C1C] hover:-translate-y-1">
-                                <h4 className="font-bold text-[#0ea5e9] text-3xl mb-1">3+</h4>
-                                <p className="text-sm text-gray-400 font-medium">Hackathons & Events</p>
-                            </div>
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-8">
+                            Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0ea5e9] to-cyan-300">Scalable</span> Web Apps.
+                        </h2>
+                        
+                        <div className="text-gray-400 text-lg md:text-xl font-medium leading-relaxed space-y-6">
+                            <p>
+                                I am a <strong>Full Stack Web Developer</strong> passionate about building scalable web applications and solving real-world problems through technology.
+                            </p>
+                            <p>
+                                I specialize in the <strong>MERN stack</strong> and enjoy designing efficient backend systems, responsive user interfaces, and reliable full-stack architectures that feel fast and intuitive.
+                            </p>
+                            <p>
+                                My work focuses on building modern applications with React.js, Node.js, Express.js, and MongoDB, while also working with relational databases like MySQL and PostgreSQL. I build secure REST APIs with authentication using JWT and lean on Docker, Git, and Linux to ship production-ready systems.
+                            </p>
+                            <p className="text-white border-l-2 border-[#0ea5e9] pl-6 italic">
+                                "I'm currently focused on scalable system design, cloud native architectures, and shipping products that feel as good to maintain as they are to use."
+                            </p>
+                        </div>
+                        
+                        {/* Stats Grid */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pb-8 border-b border-white/5">
+                            {Stats.map((stat, idx) => (
+                                <motion.div 
+                                    key={idx}
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.1 * idx }}
+                                    className="flex flex-col items-start"
+                                >
+                                    <span className="text-4xl lg:text-5xl font-black text-white mb-2">{stat.value}</span>
+                                    <span className="text-xs text-gray-500 uppercase tracking-widest font-bold">{stat.label}</span>
+                                </motion.div>
+                            ))}
                         </div>
                     </motion.div>
+
+                    {/* Highlights Column */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="w-full xl:w-7/12"
+                    >
+                        <div className="mb-10 text-center xl:text-left">
+                            <h3 className="text-2xl font-bold text-white uppercase tracking-[0.2em] inline-block pb-4 border-b-2 border-[#0ea5e9]/30">
+                                Professional Highlights
+                            </h3>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {Highlights.map((hl, index) => (
+                                <motion.div 
+                                    key={index}
+                                    whileHover={{ y: -8 }}
+                                    className="bg-[#111111]/80 backdrop-blur-lg border border-[#222] hover:border-[#0ea5e9]/40 rounded-3xl p-8 shadow-2xl transition-all duration-300 group relative overflow-hidden"
+                                >
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#0ea5e9]/5 rounded-bl-full pointer-events-none group-hover:bg-[#0ea5e9]/10 transition-colors" />
+                                    
+                                    <div className="w-14 h-14 bg-[#1a1a1a] rounded-2xl flex items-center justify-center text-[#0ea5e9] mb-8 border border-[#333] group-hover:bg-[#0ea5e9] group-hover:text-white group-hover:border-transparent transition-all shadow-lg">
+                                        {hl.icon}
+                                    </div>
+                                    <h4 className="text-xl font-bold text-white mb-4">{hl.title}</h4>
+                                    <p className="text-gray-400 leading-relaxed font-medium">
+                                        {hl.description}
+                                    </p>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+
                 </div>
             </div>
         </section>

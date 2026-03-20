@@ -40,33 +40,31 @@ const GlobalParticles = () => {
                     color: { value: "#0ea5e9" },
                     links: {
                         color: "#0ea5e9",
-                        distance: 150,
+                        distance: 180,
                         enable: true,
-                        opacity: 0.2, // Increased base opacity
-                        width: 1.5,   // Thicker links
+                        opacity: 0.25,
+                        width: 1,
+                        triangles: {
+                            enable: false // ensures it's just lines, no solid shapes
+                        }
                     },
                     move: {
                         direction: "none",
                         enable: true,
-                        outModes: { default: "out" },
-                        random: true,
-                        speed: 0.8,
+                        outModes: { default: "bounce" }, // Keeps the mesh connected within the screen
+                        random: false,
+                        speed: 0.5, // Slow, cohesive movement
                         straight: false,
                     },
                     number: {
                         density: { enable: true, area: 800 },
-                        value: 65, // Increased particle count
+                        value: 90, // Higher count for more mesh intersections
                     },
                     opacity: { 
-                        value: { min: 0.2, max: 0.5 },
-                        animation: {
-                            enable: true,
-                            speed: 1,
-                            sync: false
-                        }
+                        value: 0.4,
                     },
-                    shape: { type: "circle" },
-                    size: { value: { min: 1, max: 3 } },
+                    shape: { type: "circle" }, // Simple nodes, no moving big shapes
+                    size: { value: { min: 0.5, max: 1.5 } }, // Very small nodes, pure mesh focus
                 },
                 detectRetina: true,
             }}

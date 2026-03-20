@@ -40,10 +40,15 @@ const Hero = () => {
                 >
                     <div className="absolute -left-20 -top-20 w-80 h-80 bg-[#0ea5e9]/5 rounded-full blur-[100px] pointer-events-none" />
                     
-                    <motion.p variants={itemVariants} className="text-[#0ea5e9] text-sm md:text-base font-black tracking-[4px] uppercase mb-4 flex items-center">
-                        <span className="w-8 h-[2px] bg-[#0ea5e9] mr-4" />
-                        A Passionate Individual
-                    </motion.p>
+                    <motion.div variants={itemVariants} className="mb-6 flex items-center space-x-3">
+                        <div className="relative flex items-center justify-center">
+                            <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-30 animate-ping"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </div>
+                        <p className="text-[#0ea5e9] text-xs md:text-sm font-black tracking-[3px] uppercase">
+                            Available for opportunities
+                        </p>
+                    </motion.div>
                     
                     <motion.h2 
                         variants={itemVariants} 
