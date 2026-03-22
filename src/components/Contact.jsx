@@ -97,18 +97,23 @@ const Contact = () => {
                         <form className="relative z-10 space-y-8" onSubmit={(e) => e.preventDefault()}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div className="relative group/field">
-                                    <input type="text" id="user_name" className="w-full bg-[#111111]/80 p-5 rounded-2xl border border-white/5 focus:border-[#0ea5e9]/50 focus:bg-[#0ea5e9]/5 outline-none text-white text-lg transition-all peer placeholder-transparent shadow-inner" placeholder="Name" />
-                                    <label htmlFor="user_name" className="absolute left-5 top-5 text-gray-500 transition-all peer-focus:top-1 peer-focus:text-[10px] peer-focus:text-[#0ea5e9] tracking-widest peer-focus:font-bold peer-[:not(:placeholder-shown)]:top-1 peer-[:not(:placeholder-shown)]:text-[10px] uppercase pointer-events-none">Designation</label>
+                                    <input type="text" id="user_name" className="w-full bg-[#111111]/80 p-5 rounded-2xl border border-white/5 focus:border-[#0ea5e9]/50 focus:bg-[#0ea5e9]/5 outline-none text-white text-lg transition-all peer placeholder-transparent shadow-inner" placeholder="Name" required />
+                                    <label htmlFor="user_name" className="absolute left-5 top-5 text-gray-500 transition-all peer-focus:top-1 peer-focus:text-[10px] peer-focus:text-[#0ea5e9] tracking-widest peer-focus:font-bold peer-[:not(:placeholder-shown)]:top-1 peer-[:not(:placeholder-shown)]:text-[10px] uppercase pointer-events-none">Name</label>
                                 </div>
                                 <div className="relative group/field">
-                                    <input type="email" id="user_email" className="w-full bg-[#111111]/80 p-5 rounded-2xl border border-white/5 focus:border-[#0ea5e9]/50 focus:bg-[#0ea5e9]/5 outline-none text-white text-lg transition-all peer placeholder-transparent shadow-inner" placeholder="Email" />
-                                    <label htmlFor="user_email" className="absolute left-5 top-5 text-gray-500 transition-all peer-focus:top-1 peer-focus:text-[10px] peer-focus:text-[#0ea5e9] tracking-widest peer-focus:font-bold peer-[:not(:placeholder-shown)]:top-1 peer-[:not(:placeholder-shown)]:text-[10px] uppercase pointer-events-none">Return Address</label>
+                                    <input type="email" id="user_email" className="w-full bg-[#111111]/80 p-5 rounded-2xl border border-white/5 focus:border-[#0ea5e9]/50 focus:bg-[#0ea5e9]/5 outline-none text-white text-lg transition-all peer placeholder-transparent shadow-inner" placeholder="Email" required />
+                                    <label htmlFor="user_email" className="absolute left-5 top-5 text-gray-500 transition-all peer-focus:top-1 peer-focus:text-[10px] peer-focus:text-[#0ea5e9] tracking-widest peer-focus:font-bold peer-[:not(:placeholder-shown)]:top-1 peer-[:not(:placeholder-shown)]:text-[10px] uppercase pointer-events-none">Email Address</label>
                                 </div>
+                            </div>
+                            
+                            <div className="relative group/field">
+                                <input type="text" id="user_contact" className="w-full bg-[#111111]/80 p-5 rounded-2xl border border-white/5 focus:border-[#0ea5e9]/50 focus:bg-[#0ea5e9]/5 outline-none text-white text-lg transition-all peer placeholder-transparent shadow-inner" placeholder="Phone or Contact Detail" />
+                                <label htmlFor="user_contact" className="absolute left-5 top-5 text-gray-500 transition-all peer-focus:top-1 peer-focus:text-[10px] peer-focus:text-[#0ea5e9] tracking-widest peer-focus:font-bold peer-[:not(:placeholder-shown)]:top-1 peer-[:not(:placeholder-shown)]:text-[10px] uppercase pointer-events-none">Contact Details (Phone, Skype, etc.)</label>
                             </div>
 
                             <div className="relative group/field">
-                                <textarea id="user_message" rows="5" className="w-full bg-[#111111]/80 p-5 pt-8 rounded-2xl border border-white/5 focus:border-[#0ea5e9]/50 focus:bg-[#0ea5e9]/5 outline-none text-white text-lg transition-all peer placeholder-transparent resize-none shadow-inner" placeholder="Message"></textarea>
-                                <label htmlFor="user_message" className="absolute left-5 top-4 text-gray-500 transition-all peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-[#0ea5e9] tracking-widest peer-focus:font-bold peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:text-[10px] uppercase pointer-events-none">Transmission Payload</label>
+                                <textarea id="user_message" rows="4" className="w-full bg-[#111111]/80 p-5 pt-8 rounded-2xl border border-white/5 focus:border-[#0ea5e9]/50 focus:bg-[#0ea5e9]/5 outline-none text-white text-lg transition-all peer placeholder-transparent resize-none shadow-inner" placeholder="Message" required></textarea>
+                                <label htmlFor="user_message" className="absolute left-5 top-4 text-gray-500 transition-all peer-focus:top-2 peer-focus:text-[10px] peer-focus:text-[#0ea5e9] tracking-widest peer-focus:font-bold peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:text-[10px] uppercase pointer-events-none">Your Message / Offer Details</label>
                             </div>
 
                             <motion.button

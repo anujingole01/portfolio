@@ -40,12 +40,12 @@ const Hero = () => {
                 >
                     <div className="absolute -left-20 -top-20 w-80 h-80 bg-[#0ea5e9]/5 rounded-full blur-[100px] pointer-events-none" />
                     
-                    <motion.div variants={itemVariants} className="mb-6 flex items-center space-x-3">
+                    <motion.div variants={itemVariants} className="mb-8 flex items-center space-x-3 bg-white/5 border border-white/10 w-fit px-5 py-2.5 rounded-full backdrop-blur-md shadow-[0_0_20px_rgba(14,165,233,0.1)] hover:border-[#0ea5e9]/50 transition-colors">
                         <div className="relative flex items-center justify-center">
-                            <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-30 animate-ping"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                            <span className="absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-40 animate-ping"></span>
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500 shadow-[0_0_10px_#22d3ee]"></span>
                         </div>
-                        <p className="text-[#0ea5e9] text-xs md:text-sm font-black tracking-[3px] uppercase">
+                        <p className="text-gray-300 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">
                             Available for opportunities
                         </p>
                     </motion.div>
@@ -75,18 +75,52 @@ const Hero = () => {
                         </span>
                     </motion.div>
 
-                    {/* Quick Stats Grid - Placement Optimized */}
-                    <motion.div variants={itemVariants} className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 mb-12 w-full max-w-2xl">
-                        {[
-                            { label: 'Certifications', val: '5+' },
-                            { label: 'Projects Built', val: '5+' },
-                            { label: 'Hackathons', val: '3+' }
-                        ].map((stat, i) => (
-                            <div key={i} className="bg-[#111] border border-[#222] p-5 rounded-2xl group hover:border-[#0ea5e9]/40 transition-all duration-300">
-                                <h3 className="text-white text-2xl md:text-3xl font-black mb-1 group-hover:text-[#0ea5e9] transition-colors">{stat.val}</h3>
-                                <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">{stat.label}</p>
+                    {/* Creative Feature Showcase Container */}
+                    <motion.div variants={itemVariants} className="mb-12 w-full max-w-2xl relative group pb-4">
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#0ea5e9]/20 via-cyan-400/20 to-[#0ea5e9]/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700 opacity-50"></div>
+                        
+                        <div className="relative bg-[#0a0a0a]/90 backdrop-blur-2xl border border-white/5 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.5)]">
+                            {/* Animated Background Mesh */}
+                            <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+                            
+                            {/* Moving Light Beam */}
+                            <div className="absolute top-0 left-[-100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-30deg] animate-[scan_5s_ease-in-out_infinite]"></div>
+
+                            <div className="relative z-10 grid grid-cols-3 gap-4 w-full h-full">
+                                {/* Feature 1 */}
+                                <div className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/[0.02] border border-white/[0.03] hover:bg-[#0ea5e9]/10 hover:border-[#0ea5e9]/30 transition-all duration-500 group/item hover:-translate-y-1">
+                                    <div className="w-10 h-10 sm:w-12 sm:h-12 mb-3 rounded-full bg-[#080808] border border-white/10 flex items-center justify-center group-hover/item:border-[#0ea5e9] group-hover/item:shadow-[0_0_15px_rgba(14,165,233,0.4)] transition-all">
+                                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover/item:text-[#0ea5e9] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                        </svg>
+                                    </div>
+                                    <span className="text-white font-bold text-xs sm:text-sm mb-1 text-center">Development</span>
+                                    <span className="text-gray-500 text-[9px] sm:text-[10px] uppercase tracking-widest text-center">Full-Stack</span>
+                                </div>
+                                
+                                {/* Feature 2 */}
+                                <div className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/[0.02] border border-white/[0.03] hover:bg-cyan-500/10 hover:border-cyan-500/30 transition-all duration-500 group/item hover:-translate-y-1">
+                                    <div className="w-10 h-10 sm:w-12 sm:h-12 mb-3 rounded-full bg-[#080808] border border-white/10 flex items-center justify-center group-hover/item:border-cyan-400 group-hover/item:shadow-[0_0_15px_rgba(34,211,238,0.4)] transition-all">
+                                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover/item:text-cyan-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                    </div>
+                                    <span className="text-white font-bold text-xs sm:text-sm mb-1 text-center">Design</span>
+                                    <span className="text-gray-500 text-[9px] sm:text-[10px] uppercase tracking-widest text-center">UI / UX</span>
+                                </div>
+
+                                {/* Feature 3 */}
+                                <div className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/[0.02] border border-white/[0.03] hover:bg-teal-500/10 hover:border-teal-500/30 transition-all duration-500 group/item hover:-translate-y-1">
+                                    <div className="w-10 h-10 sm:w-12 sm:h-12 mb-3 rounded-full bg-[#080808] border border-white/10 flex items-center justify-center group-hover/item:border-teal-400 group-hover/item:shadow-[0_0_15px_rgba(45,212,191,0.4)] transition-all">
+                                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover/item:text-teal-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                        </svg>
+                                    </div>
+                                    <span className="text-white font-bold text-xs sm:text-sm mb-1 text-center">Innovation</span>
+                                    <span className="text-gray-500 text-[9px] sm:text-[10px] uppercase tracking-widest text-center">Solutions</span>
+                                </div>
                             </div>
-                        ))}
+                        </div>
                     </motion.div>
 
                     {/* Socials & Actions */}

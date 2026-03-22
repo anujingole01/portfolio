@@ -68,10 +68,14 @@ const Education = () => {
 
                 <div className="relative">
                     {/* Modern Timeline Line */}
-                    <div className="absolute left-[30px] md:left-1/2 top-4 bottom-0 w-[2px] md:w-[3px] bg-[#1a1a1a] md:-translate-x-1/2 rounded-full overflow-hidden">
+                    <div className="absolute left-[30px] md:left-1/2 top-4 bottom-0 w-[3px] md:w-[4px] bg-[#1a1a1a] md:-translate-x-1/2 rounded-full overflow-hidden">
                         <motion.div 
-                            className="absolute top-0 left-0 w-full bg-[#0ea5e9] shadow-[0_0_15px_#0ea5e9] origin-top"
-                            style={{ scaleY, backgroundColor: glowColor }}
+                            className="absolute top-0 left-0 w-full h-full origin-top"
+                            style={{ 
+                                scaleY, 
+                                background: "linear-gradient(to bottom, transparent, #0ea5e9, #22d3ee, #0ea5e9)",
+                                boxShadow: "0 0 20px #0ea5e9, 0 0 40px #22d3ee" 
+                            }}
                         />
                     </div>
 

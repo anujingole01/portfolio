@@ -6,31 +6,31 @@ const GraphicProjects = [
     {
         title: 'Brand Identity Design',
         category: 'Logo & Branding',
-        img: 'https://images.unsplash.com/photo-1626785779198-5c4a45a315f6?auto=format&fit=crop&q=80&w=800',
+        img: 'https://images.unsplash.com/photo-1634942537034-22b392ee84bc?auto=format&fit=crop&q=80&w=800',
         icon: <FaPenNib />,
     },
     {
         title: 'UI/UX Mockups',
         category: 'Web Interface',
-        img: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800',
+        img: 'https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&q=80&w=800',
         icon: <FaLayerGroup />,
     },
     {
         title: 'Creative Illustrations',
         category: 'Digital Art',
-        img: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800',
+        img: 'https://images.unsplash.com/photo-1572044162444-ad60f128bdea?auto=format&fit=crop&q=80&w=800',
         icon: <FaPaintBrush />,
     },
     {
         title: 'Motion Graphics',
         category: 'Animation',
-        img: 'https://images.unsplash.com/photo-1551269901-5c5e14c25df2?auto=format&fit=crop&q=80&w=800',
+        img: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800',
         icon: <FaLayerGroup />,
     },
     {
         title: 'Social Media Assets',
         category: 'Marketing Design',
-        img: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800',
+        img: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800',
         icon: <FaPenNib />,
     }
 ];

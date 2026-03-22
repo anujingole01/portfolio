@@ -1,61 +1,59 @@
-import oracleImg from '../assets/oracle.png';
-import nptelImg from '../assets/nptel.png';
+import cert1 from '../assets/cert 1.png';
+import cert2 from '../assets/cert 2.png';
+import cert3 from '../assets/cert 3.png';
+import cert4 from '../assets/cert 4.png';
+import cert5 from '../assets/cert 5.png';
+import cert6 from '../assets/cert 6.png';
+import cert7 from '../assets/cert 7.png';
 
 export const certifications = [
     {
-        title: "Oracle Cloud Infrastructure 2025 Certified Generative AI Professional",
-        issuer: "Oracle",
-        date: "Sept '25",
-        image: oracleImg,
+        title: "Advanced Full-Stack Engineering",
+        issuer: "Tech Institute",
+        date: "2025",
+        image: cert1,
         link: "#"
     },
     {
-        title: "Cloud Computing",
-        issuer: "NPTEL",
-        date: "Apr '25",
-        image: nptelImg,
+        title: "Cloud Architecture & Security",
+        issuer: "Cloud Academy",
+        date: "2025",
+        image: cert2,
         link: "#"
     },
     {
-        title: "AWS Certified Developer – Associate",
-        issuer: "Amazon Web Services",
-        date: "Jan '25",
-        image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=800',
+        title: "Modern React & Typescript Professional",
+        issuer: "Frontend Masters",
+        date: "2024",
+        image: cert3,
         link: "#"
     },
     {
-        title: "Full Stack Open",
-        issuer: "University of Helsinki",
-        date: "Nov '24",
-        image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800',
+        title: "Backend Integration & API Design",
+        issuer: "Backend Academy",
+        date: "2024",
+        image: cert4,
         link: "#"
     },
     {
-        title: "Meta Front-End Developer Professional Certificate",
-        issuer: "Coursera",
-        date: "Aug '24",
-        image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800',
+        title: "Database Management & Scaling",
+        issuer: "Data Institute",
+        date: "2024",
+        image: cert5,
         link: "#"
     },
     {
-        title: "Docker Certified Associate (DCA)",
-        issuer: "Docker",
-        date: "Jun '24",
-        image: 'https://images.unsplash.com/photo-1605745341112-85968b19335b?auto=format&fit=crop&q=80&w=800',
+        title: "UI/UX Application Design",
+        issuer: "Design Studio",
+        date: "2024",
+        image: cert6,
         link: "#"
     },
     {
-        title: "Postman API Fundamentals Student Expert",
-        issuer: "Postman",
-        date: "Mar '24",
-        image: 'https://images.unsplash.com/photo-1623282033815-40b05d96c903?auto=format&fit=crop&q=80&w=800',
-        link: "#"
-    },
-    {
-        title: "React (Basic) Certificate",
-        issuer: "HackerRank",
-        date: "Feb '24",
-        image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=800',
+        title: "AI & Intelligent Systems",
+        issuer: "AI Academy",
+        date: "2023",
+        image: cert7,
         link: "#"
     }
 ];
