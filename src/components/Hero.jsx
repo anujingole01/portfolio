@@ -1,196 +1,202 @@
-import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa';
-import { Typewriter } from 'react-simple-typewriter';
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
 import { profile } from '../data/profile';
 import profilePic from '../assets/anuj-photo.jpg.jpg';
 import resumePdf from '../assets/resume.pdf';
-import { useEffect, useState } from "react";
 
-const Hero = () => {
-    // Animation variants
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.15,
-                delayChildren: 0.2
-            }
-        }
-    };
+const TypewriterText = ({ words }) => {
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
-    const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-    };
+  useEffect(() => {
+    const typeSpeed = isDeleting ? 40 : 80;
+    const currentWord = words[currentWordIndex];
 
-    return (
-        <section id="home" className="w-full h-full min-h-[90vh] flex items-center pt-8 md:pt-0 overflow-hidden relative bg-transparent">
-            {/* Soft Ambient Glows */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#0ea5e9]/5 rounded-full blur-[150px] pointer-events-none" />
-            
-            <div className="max-w-[1400px] w-full mx-auto px-6 md:px-12 lg:px-20 flex flex-col-reverse md:flex-row items-center justify-between relative z-10">
-                
-                {/* Left Content */}
-                <motion.div 
-                    className="w-full md:w-[55%] flex flex-col justify-center items-start mt-12 md:mt-0 relative"
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                >
-                    <div className="absolute -left-20 -top-20 w-80 h-80 bg-[#0ea5e9]/5 rounded-full blur-[100px] pointer-events-none" />
-                    
-                    <motion.div variants={itemVariants} className="mb-8 flex items-center space-x-3 bg-white/5 border border-white/10 w-fit px-5 py-2.5 rounded-full backdrop-blur-md shadow-[0_0_20px_rgba(14,165,233,0.1)] hover:border-[#0ea5e9]/50 transition-colors">
-                        <div className="relative flex items-center justify-center">
-                            <span className="absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-40 animate-ping"></span>
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500 shadow-[0_0_10px_#22d3ee]"></span>
-                        </div>
-                        <p className="text-gray-300 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">
-                            Available for opportunities
-                        </p>
-                    </motion.div>
-                    
-                    <motion.h2 
-                        variants={itemVariants} 
-                        className="text-white text-5xl md:text-7xl font-black tracking-tighter mb-4 leading-tight group"
-                    >
-                        {profile.name}
-                        <span className="text-[#0ea5e9] active:text-[#FF1E1E] transition-colors cursor-pointer">.</span>
-                    </motion.h2>
+    const timer = setTimeout(() => {
+      if (!isDeleting && currentText === currentWord) {
+        setTimeout(() => setIsDeleting(true), 1200); 
+        return;
+      }
 
-                    <motion.div 
-                        variants={itemVariants} 
-                        className="text-2xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-400 to-[#0ea5e9] mb-10 h-20 md:h-24 flex items-center max-w-xl"
-                    >
-                        <span className="font-mono">
-                            <Typewriter
-                                words={['Full Stack Web Developer', 'Graphic Designer', 'UI/UX Enthusiast']}
-                                loop={true}
-                                cursor
-                                cursorStyle='|'
-                                typeSpeed={70}
-                                deleteSpeed={50}
-                                delaySpeed={1500}
-                            />
-                        </span>
-                    </motion.div>
+      if (isDeleting && currentText === "") {
+        setIsDeleting(false);
+        setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        return;
+      }
 
-                    {/* Creative Feature Showcase Container */}
-                    <motion.div variants={itemVariants} className="mb-12 w-full max-w-2xl relative group pb-4">
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#0ea5e9]/20 via-cyan-400/20 to-[#0ea5e9]/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-700 opacity-50"></div>
-                        
-                        <div className="relative bg-[#0a0a0a]/90 backdrop-blur-2xl border border-white/5 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.5)]">
-                            {/* Animated Background Mesh */}
-                            <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:14px_24px]"></div>
-                            
-                            {/* Moving Light Beam */}
-                            <div className="absolute top-0 left-[-100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-30deg] animate-[scan_5s_ease-in-out_infinite]"></div>
+      const nextText = isDeleting
+        ? currentWord.substring(0, currentText.length - 1)
+        : currentWord.substring(0, currentText.length + 1);
 
-                            <div className="relative z-10 grid grid-cols-3 gap-4 w-full h-full">
-                                {/* Feature 1 */}
-                                <div className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/[0.02] border border-white/[0.03] hover:bg-[#0ea5e9]/10 hover:border-[#0ea5e9]/30 transition-all duration-500 group/item hover:-translate-y-1">
-                                    <div className="w-10 h-10 sm:w-12 sm:h-12 mb-3 rounded-full bg-[#080808] border border-white/10 flex items-center justify-center group-hover/item:border-[#0ea5e9] group-hover/item:shadow-[0_0_15px_rgba(14,165,233,0.4)] transition-all">
-                                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover/item:text-[#0ea5e9] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                                        </svg>
-                                    </div>
-                                    <span className="text-white font-bold text-xs sm:text-sm mb-1 text-center">Development</span>
-                                    <span className="text-gray-500 text-[9px] sm:text-[10px] uppercase tracking-widest text-center">Full-Stack</span>
-                                </div>
-                                
-                                {/* Feature 2 */}
-                                <div className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/[0.02] border border-white/[0.03] hover:bg-cyan-500/10 hover:border-cyan-500/30 transition-all duration-500 group/item hover:-translate-y-1">
-                                    <div className="w-10 h-10 sm:w-12 sm:h-12 mb-3 rounded-full bg-[#080808] border border-white/10 flex items-center justify-center group-hover/item:border-cyan-400 group-hover/item:shadow-[0_0_15px_rgba(34,211,238,0.4)] transition-all">
-                                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover/item:text-cyan-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                        </svg>
-                                    </div>
-                                    <span className="text-white font-bold text-xs sm:text-sm mb-1 text-center">Design</span>
-                                    <span className="text-gray-500 text-[9px] sm:text-[10px] uppercase tracking-widest text-center">UI / UX</span>
-                                </div>
+      setCurrentText(nextText);
+    }, typeSpeed);
 
-                                {/* Feature 3 */}
-                                <div className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-2xl bg-white/[0.02] border border-white/[0.03] hover:bg-teal-500/10 hover:border-teal-500/30 transition-all duration-500 group/item hover:-translate-y-1">
-                                    <div className="w-10 h-10 sm:w-12 sm:h-12 mb-3 rounded-full bg-[#080808] border border-white/10 flex items-center justify-center group-hover/item:border-teal-400 group-hover/item:shadow-[0_0_15px_rgba(45,212,191,0.4)] transition-all">
-                                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 group-hover/item:text-teal-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                        </svg>
-                                    </div>
-                                    <span className="text-white font-bold text-xs sm:text-sm mb-1 text-center">Innovation</span>
-                                    <span className="text-gray-500 text-[9px] sm:text-[10px] uppercase tracking-widest text-center">Solutions</span>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, currentWordIndex, words]);
 
-                    {/* Socials & Actions */}
-                    <div className="flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-8 w-full">
-                        <motion.a 
-                            href={resumePdf} 
-                            download="Anuj_Ingole_CV.pdf"
-                            whileHover={{ scale: 1.02, y: -2 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="w-full sm:w-auto bg-[#0ea5e9] text-white px-10 py-4 rounded-2xl font-black text-sm shadow-[0_15px_30px_rgba(14,165,233,0.3)] hover:shadow-[0_20px_40px_rgba(14,165,233,0.4)] transition-all duration-300 uppercase tracking-widest text-center"
-                        >
-                            Get Resume
-                        </motion.a>
-                        
-                        <div className="flex space-x-6">
-                            {[
-                                { icon: <FaLinkedinIn size={18} />, url: profile.social?.linkedin || '#' },
-                                { icon: <FaGithub size={18} />, url: profile.social?.github || '#' },
-                                { icon: <FaEnvelope size={18} />, url: `mailto:${profile.email}` }
-                            ].map((social, index) => (
-                                <motion.a 
-                                    key={index} 
-                                    href={social.url}
-                                    whileHover={{ scale: 1.2, color: "#0ea5e9" }}
-                                    className="text-gray-500 transition-all duration-300"
-                                >
-                                    {social.icon}
-                                </motion.a>
-                            ))}
-                        </div>
-                    </div>
-                </motion.div>
-
-                {/* Right Image Content - Ultra Modern Sphere/Circle */}
-                <motion.div 
-                    className="relative w-72 h-72 md:w-[450px] md:h-[450px] lg:w-[500px] lg:h-[500px] flex items-center justify-center p-6"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1, ease: 'easeOut' }}
-                >
-                    {/* Glowing Tech Rings Backdrop */}
-                    <div className="absolute inset-0 border-[1px] border-[#0ea5e9]/10 rounded-full animate-[spin_20s_linear_infinite]" />
-                    <div className="absolute inset-4 border-[1px] border-[#0ea5e9]/5 rounded-full animate-[spin_12s_linear_infinite_reverse]" />
-                    
-                    {/* Floating Tech Labels Mobile */}
-                    <div className="absolute top-0 right-0 md:hidden bg-[#0ea5e9] text-[#050505] text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-lg shadow-[#0ea5e9]/20">
-                        Active_Dev
-                    </div>
-
-                    <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#1A1A1A] shadow-[0_0_80px_rgba(14,165,233,0.15)] group">
-                        <img 
-                            src={profilePic} 
-                            alt={profile.name}
-                            className="w-full h-full object-cover object-top grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                        />
-                        {/* Interactive Scan Line Effect */}
-                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0ea5e9]/10 to-transparent h-20 w-full animate-[scan_3s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                </motion.div>
-            </div>
-            
-            {/* Custom Scan Keyframe in style or simply use Tailwind */}
-            <style dangerouslySetInnerHTML={{ __html: `
-                @keyframes scan {
-                    0% { transform: translateY(-100%); }
-                    100% { transform: translateY(400%); }
-                }
-            `}} />
-        </section>
-    );
+  return (
+    <span className="text-rose-500 font-bold font-secondary">
+      {currentText}
+      <span className="animate-pulse border-r-2 border-rose-500 ml-1"></span>
+    </span>
+  );
 };
+
+function Hero() {
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const openResume = () => {
+    window.open(resumePdf, "_blank");
+  };
+
+  return (
+    <>
+      <div className="hidden sm:flex fixed left-6 top-1/2 -translate-y-1/2 flex-col items-center gap-6 z-50 text-slate-400">
+        <motion.a whileHover={{ y: -4, color: "#fff" }} href={profile.social.github} target="_blank" rel="noopener noreferrer" className="text-xl transition-colors">
+          <FaGithub />
+        </motion.a>
+        <motion.a whileHover={{ y: -4, color: "#0077b5" }} href={profile.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-xl transition-colors">
+          <FaLinkedin />
+        </motion.a>
+        <motion.a whileHover={{ y: -4, color: "#ea4335" }} href={`mailto:${profile.email}`} className="text-xl transition-colors">
+          <HiOutlineMail />
+        </motion.a>
+        <div className="w-[1px] h-20 bg-gradient-to-b from-slate-400 to-transparent"></div>
+      </div>
+
+      <div className="sm:hidden fixed bottom-6 left-1/2 -translate-x-1/2 backdrop-blur-xl shadow-2xl border px-8 py-4 rounded-full flex gap-8 z-50 transition-colors bg-[#0a0a0a]/80 border-slate-800 text-slate-400">
+        <a href={profile.social.github} target="_blank" rel="noopener noreferrer" className="hover:text-white"><FaGithub size={20} /></a>
+        <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-[#0077b5]"><FaLinkedin size={20} /></a>
+        <a href={`mailto:${profile.email}`} className="hover:text-[#ea4335]"><HiOutlineMail size={22} /></a>
+      </div>
+
+      <section id="home" className="relative z-10 h-[100svh] w-full flex items-center justify-center bg-transparent px-6 md:px-12 overflow-hidden font-primary snap-start">
+        <div className="relative z-10 grid lg:grid-cols-2 lg:items-center gap-8 lg:gap-16 max-w-7xl w-full h-full lg:pt-0 pt-20 pb-16 lg:pb-0 font-secondary mt-12 md:mt-0">
+          
+          {/* LEFT SIDE */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col justify-center h-full"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2 }}
+              className="mb-4 inline-flex items-center gap-2 max-w-max px-4 py-1.5 bg-[#111111] backdrop-blur-xl rounded-full border border-white/10 shadow-xl"
+            >
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative rounded-full h-2.5 w-2.5 bg-emerald-500 shadow-sm shadow-emerald-500/50"></span>
+              </span>
+              <span className="text-[10px] md:text-[11px] font-black tracking-[0.2em] text-gray-300 uppercase">Available for new opportunities</span>
+            </motion.div>
+
+            <div className="mt-1">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] tracking-tighter text-white font-secondary">
+                ANUJ
+              </h1>
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] tracking-tighter text-white font-secondary">
+                INGOLE
+              </h1>
+            </div>
+
+            <div className="mt-4 lg:mt-6">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+                className="text-lg sm:text-xl lg:text-2xl h-8"
+              >
+                <TypewriterText words={["Full Stack Developer", "Graphic Designer", "Software Engineer"]} />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="mt-6 lg:mt-8 max-w-[550px] relative"
+              >
+                <div className="relative bg-[#0a0a0a]/90 backdrop-blur-3xl rounded-2xl p-5 sm:p-6 border border-white/10 shadow-2xl">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2 font-mono text-[9px] tracking-[0.2em] text-slate-400 uppercase">
+                      <span className="relative flex h-1.5 w-1.5">
+                        <span className="animate-ping absolute h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+                        <span className="relative rounded-full h-1.5 w-1.5 bg-rose-500"></span>
+                      </span>
+                      session: profile
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <p className="text-gray-300 font-sans text-[13px] sm:text-[14px] leading-relaxed">
+                      I am a passionate <span className="text-white font-black">Computer Science Engineer</span> with experience in building dynamic web applications and IoT solutions. I specialize in transforming complex challenges into efficient systems. Alongside development, I work as a <span className="text-rose-500 font-bold">Graphic Designer</span>, crafting user-centric designs that enhance digital experiences.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+               {/* Compact Action Buttons Container */}
+              <div className="mt-6 flex flex-wrap items-center gap-6">
+                <motion.button
+                  onClick={openResume}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-5 py-2.5 bg-[#050505] text-white rounded-full font-black text-[9px] sm:text-[10px] tracking-[0.2em] uppercase shadow-xl border border-white/10 hover:border-rose-500/30 transition-all flex items-center gap-2"
+                >
+                  <div className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
+                  <span>View Resume</span>
+                </motion.button>
+
+                <motion.div
+                  whileHover={{ x: 5 }}
+                  className="group cursor-pointer flex items-center gap-2 text-gray-400 hover:text-white transition-all"
+                  onClick={() => scrollToSection("contact")}
+                >
+                  <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] border-b-2 border-transparent group-hover:border-rose-500 transition-all">
+                    Start a Conversation
+                  </span>
+                  <span className="text-rose-500 animate-bounce-x">→</span>
+                </motion.div>
+              </div>
+
+            </div>
+          </motion.div>
+
+          {/* RIGHT SIDE */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="flex justify-center items-center h-full relative"
+          >
+            <div className="relative w-52 h-52 sm:w-64 sm:h-64 lg:w-[400px] lg:h-[400px] xl:w-[460px] xl:h-[460px] flex items-center justify-center p-3 lg:p-6 mx-auto">
+              <div className="absolute inset-0 border-[1px] border-rose-500/20 rounded-full animate-[spin_20s_linear_infinite]" />
+              <div className="absolute inset-4 border-[1px] border-rose-500/10 rounded-full animate-[spin_12s_linear_infinite_reverse]" />
+              <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[#1A1A1A] group shadow-2xl">
+                <img src={profilePic} alt={profile.name} className="w-full h-full object-cover object-top grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-rose-500/10 to-transparent h-20 w-full animate-[scan_3s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      
+      <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes scan {
+              0% { transform: translateY(-100%); }
+              100% { transform: translateY(400%); }
+          }
+      `}} />
+    </>
+  );
+}
 
 export default Hero;

@@ -4,13 +4,23 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
 }
 
 body {
-  background-color: #050505;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
   color: #f3f4f6;
   font-family: 'Inter', -apple-system, sans-serif;
   overflow-x: hidden;
+  overscroll-behavior-y: none;
+}
+
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 ::selection {
@@ -31,4 +41,38 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #0ea5e9;
+}
+
+@keyframes bounce-x {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+.animate-bounce-x {
+  animation: bounce-x 1s infinite;
+}
+
+@keyframes gradient-xy {
+  0%, 100% {
+    background-size: 400% 400%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 400% 400%;
+    background-position: right center;
+  }
+}
+
+.animate-gradient-xy {
+  animation: gradient-xy 3s ease infinite;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+.perspective-2000 {
+  perspective: 2000px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
 }

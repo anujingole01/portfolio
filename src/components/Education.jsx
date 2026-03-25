@@ -36,13 +36,13 @@ const Education = () => {
         offset: ["start center", "end center"]
     });
 
-    const glowColor = useTransform(scrollYProgress, [0, 0.5, 1], ["#0ea5e9", "#22d3ee", "#0ea5e9"]);
+    const glowColor = useTransform(scrollYProgress, [0, 0.5, 1], ["#f43f5e", "#fb7185", "#f43f5e"]);
     const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
     return (
-        <section id="education" className="py-32 relative overflow-hidden bg-transparent">
+        <section id="education" className="py-24 relative overflow-hidden bg-transparent snap-start">
             {/* Background Ambient Glow */}
-            <div className="absolute top-1/2 left-0 w-full h-[800px] bg-gradient-to-r from-[#0ea5e9]/5 to-transparent blur-[120px] pointer-events-none opacity-50" />
+            <div className="absolute top-1/2 left-0 w-full h-[800px] bg-gradient-to-r from-[#f43f5e]/5 to-transparent blur-[120px] pointer-events-none opacity-50" />
 
             <div className="max-w-[1200px] mx-auto px-6 md:px-12 w-full relative z-10" ref={containerRef}>
                 
@@ -51,7 +51,7 @@ const Education = () => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center space-x-2 px-6 py-2 border border-[#0ea5e9]/30 bg-[#0ea5e9]/10 rounded-full text-[#0ea5e9] text-xs font-black tracking-[0.2em] uppercase mb-6 shadow-[0_0_20px_rgba(14,165,233,0.2)]"
+                        className="inline-flex items-center space-x-2 px-6 py-2 border border-[#f43f5e]/30 bg-[#f43f5e]/10 rounded-full text-[#f43f5e] text-xs font-black tracking-[0.2em] uppercase mb-6 shadow-[0_0_20px_rgba(244,63,94,0.2)]"
                     >
                         <FaGraduationCap size={14}/>
                         <span>Academic Path</span>
@@ -62,7 +62,7 @@ const Education = () => {
                         viewport={{ once: true }}
                         className="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none"
                     >
-                        Educational <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0ea5e9] to-cyan-400">Journey.</span>
+                        Educational <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f43f5e] to-rose-400">Journey.</span>
                     </motion.h2>
                 </div>
 
@@ -73,8 +73,8 @@ const Education = () => {
                             className="absolute top-0 left-0 w-full h-full origin-top"
                             style={{ 
                                 scaleY, 
-                                background: "linear-gradient(to bottom, transparent, #0ea5e9, #22d3ee, #0ea5e9)",
-                                boxShadow: "0 0 20px #0ea5e9, 0 0 40px #22d3ee" 
+                                background: "linear-gradient(to bottom, transparent, #f43f5e, #fb7185, #f43f5e)",
+                                boxShadow: "0 0 20px #f43f5e, 0 0 40px #fb7185" 
                             }}
                         />
                     </div>
@@ -87,10 +87,10 @@ const Education = () => {
                                     
                                     {/* Timeline Node */}
                                     <motion.div 
-                                        className="absolute left-[30px] md:left-1/2 top-10 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-16 h-16 bg-[#080808] border-2 border-[#1a1a1a] rounded-full z-30 flex items-center justify-center transition-all duration-500 hover:border-[#0ea5e9] shadow-[0_0_20px_rgba(0,0,0,0.8)] hover:shadow-[0_0_25px_rgba(14,165,233,0.3)]"
+                                        className="absolute left-[30px] md:left-1/2 top-10 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 w-16 h-16 bg-[#080808] border-2 border-[#1a1a1a] rounded-full z-30 flex items-center justify-center transition-all duration-500 hover:border-[#f43f5e] shadow-[0_0_20px_rgba(0,0,0,0.8)] hover:shadow-[0_0_25px_rgba(244,63,94,0.3)]"
                                     >
                                         {/* Inner glowing node */}
-                                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#0ea5e9]/20 to-transparent border border-[#0ea5e9]/50 flex items-center justify-center text-[#0ea5e9] shadow-[inset_0_0_10px_rgba(14,165,233,0.2)]">
+                                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#f43f5e]/20 to-transparent border border-[#f43f5e]/50 flex items-center justify-center text-[#f43f5e] shadow-[inset_0_0_10px_rgba(244,63,94,0.2)]">
                                             {item.icon}
                                         </div>
                                     </motion.div>
@@ -105,7 +105,7 @@ const Education = () => {
                                             whileInView={{ opacity: 1, x: 0 }}
                                             viewport={{ once: true, margin: "-100px" }}
                                             whileHover={{ y: -5 }}
-                                            className="relative p-8 rounded-3xl bg-[#0a0a0a]/80 backdrop-blur-md border border-white/5 hover:border-[#0ea5e9]/40 transition-all duration-300 shadow-xl"
+                                            className="relative p-8 rounded-3xl bg-[#0a0a0a]/80 backdrop-blur-md border border-white/5 hover:border-[#f43f5e]/40 transition-all duration-300 shadow-xl"
                                         >
                                             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-8">
                                                 <h3 className="text-2xl font-bold text-white tracking-tight leading-tight w-full sm:w-2/3">
@@ -119,7 +119,7 @@ const Education = () => {
                                             </div>
                                             
                                             <div className="flex items-start gap-4 mb-6">
-                                                <div className="w-10 h-10 rounded-xl bg-[#0ea5e9]/10 border border-[#0ea5e9]/20 flex items-center justify-center text-[#0ea5e9] flex-shrink-0">
+                                                <div className="w-10 h-10 rounded-xl bg-[#f43f5e]/10 border border-[#f43f5e]/20 flex items-center justify-center text-[#f43f5e] flex-shrink-0">
                                                     {item.icon}
                                                 </div>
                                                 <div className="pt-1">
@@ -136,7 +136,7 @@ const Education = () => {
                                             </div>
 
                                             <div className="flex items-center gap-2 text-gray-500 bg-[#111] border border-[#1a1a1a] rounded-xl px-4 py-2 w-fit">
-                                                <FaMapMarkerAlt size={12} className="text-[#0ea5e9]/80" />
+                                                <FaMapMarkerAlt size={12} className="text-[#f43f5e]/80" />
                                                 <span className="text-sm font-medium">{item.location}</span>
                                             </div>
                                         </motion.div>
